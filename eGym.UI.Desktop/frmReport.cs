@@ -83,7 +83,7 @@ namespace eGym.UI.Desktop
 
 
                 var client = new HttpClient();
-                var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:7220/Report/finance?token=RSIIeGym");
+                var request = new HttpRequestMessage(HttpMethod.Get, Settings.Default.APIUrl+"Report/finance?token=RSIIeGym");
                 var response = await client.SendAsync(request);
                 string json = await response.Content.ReadAsStringAsync();
                 List<Payment> payments = JsonConvert.DeserializeObject<List<Payment>>(json);
