@@ -21,7 +21,7 @@ services:
       context: .
     environment:
       - ConnectionStrings:DataBaseConnection=Server=egym-sql,1433;Database=210420;User=sa;Password=QWElkj132!;ConnectRetryCount=0;Encrypt=False
-      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_ENVIRONMENT=Production
     ports:
       - 5192:5192
     networks:

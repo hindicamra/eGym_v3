@@ -16,10 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\eGym.BLL\eGym.BLL.csproj" />
     <ProjectReference Include="..\eGym.DAL\eGym.DAL.csproj" />
   </ItemGroup>
