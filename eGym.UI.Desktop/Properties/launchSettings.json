@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "eGym.UI.Desktop": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

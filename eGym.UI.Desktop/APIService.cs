@@ -8,7 +8,7 @@ namespace eGym.UI.Desktop
     public class APIService
     {
         private string _resource = null;
-        public static string _endpoint = Settings.Default.APIUrl;
+        public string _endpoint = "";
 
         public static string Username = null;
         public static string Password = null;
@@ -16,6 +16,17 @@ namespace eGym.UI.Desktop
         public APIService(string resource)
         {
             _resource = resource;
+
+            string getEnv = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+            if (getEnv == "Development") 
+            {
+                _endpoint = Settings.Default.APIUrlLocal;
+            }
+            if (getEnv == "Production")
+            {
+                _endpoint = Settings.Default.APIUrlProduction;
+            }
         } 
 
         public async Task<T> Login<T>(object request, string path = "")
