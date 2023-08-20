@@ -58,3 +58,51 @@ Expiration date: (bilo koji mjesec i godina u buducnosti)
 ## Testiranje sistema preporuke
 
 Sistem preporuke je integrisan prilikom kreiranja Rezervacije, na nacin koji je opisan u prijavi teme.
+
+## Developer
+
+Dodati su Enviromenti: Prodution/Development.
+Production:
+	Windows Forms: gadja api od dockera
+	API: gadja MS SQL server od dockera
+Development:
+	Windows Forms: gadja api koji se pokrene preko Visual Studija
+	API: gadja MS SQL server koji smo instalirali direktno na masinu
+Mozemo brzo da iz Windows Aplikacije koristimo API u Dockeru/Lokalni koji pokrenemo preko Visual Studio a isto tako i API mozemo staviti da gadja bazu u Dockeru ili lokalni SQL Server.
+
+Promjena enviromenta:
+	Visual Studio->Projekat(Win Form/API)->Properties->Debug->Open debug launch profiles UI->enviroments variables -> ASPNETCORE_ENVIRONMENT:Production/Development
+
+## Reporti
+
+Microsoft Report Builder:
+Instalirati Microsoft Report Builder "https://www.microsoft.com/en-US/download/details.aspx?id=53613"
+Data Sources dodati data source Lokalni Microsoft SQL Server/Docker Microsoft SQL Server, Name:DataSource
+Datasets dodati novi dataset, Name:DataSet, Use a dataset embedded in my report., Data source: DataSource, Query designer..., Tables odabrati tabelu za prikaz i sve ili pojedinacne kolone, Ok, Ok. Na reportu desni klik Insert->Table i u tabeli ima data odabrati kolone koje zelimo prikazati i snimimo report kao nesto.rdl
+
+C#:
+Ako nisu dodani nugeti dodati ih: ReportViewerCore.WinForms, ReportViewerCore.NETCore
+Prekopirati report u folder Reports. Properties od reporta->Build Action:Embedded resource
+Kreirati Windows Formu-> Iz Toolbox prevuci Report Viewer.
+ako imamo WinForma.cs imamo strelicu sa lijeve strane kliknemo i pojaviti ce se ispod WinFormaDesigner.cs te otvoriti taj WinFormaDesigner.cs -> Dodati u InitializeComponent() -> Controls.Add(reportViewer1); i snimiti i na formi se prikaze report viewer na property od reporta mozemo da promjenimo visinu i sirinu.
+Kliknuti par puta na windows formu i da bi se kreirala metoda WinForma_Load(object sender, EventArgs e) i dodati sljedece:
+            //Globalne
+
+            private readonly APIService _service = new APIService("Account");
+            List<AccountDTO> accounts = new List<AccountDTO>();
+
+            WinForma_Load(object sender, EventArgs e) 
+            {
+                reportViewer1.LocalReport.ReportEmbeddedResource = "eGym.UI.Desktop.Reports.ReportKorisnici.rdl";//putanaj do reporta
+                try
+                {
+                    accounts = await _service.Get<List<AccountDTO>>(null, "/getAll");//AccountDTO je model koji smo odabrali na dizajnu reporta
+
+                    reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet", accounts));//DataSet mora biti istog naziva kao i u reportu
+                    reportViewer1.RefreshReport();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Desila se greska");
+                }
+            }
