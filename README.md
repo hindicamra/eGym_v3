@@ -25,7 +25,7 @@ Pored nabrojanih pristupnih podataka, u bazi podataka se mogu pronaci i ostali z
 
 ## Konfiguracija okruženja za rad aplikacije
 
-1. Pokrenuti komandu `git clone https://github.com/hindicamra/eGym.git` u command prompt-u
+1. Pokrenuti komandu `git clone https://github.com/hindicamra/eGym_v3.git` u command prompt-u
 2. Pozicionirati se u root folder repositorija
 3. Pokrenite komandu `docker-compose build`
 4. Nakon sto se prethodna komanda uspjesno izvrsi, pokrenuti komandu `docker-compose up`, nakon cega ce biti pokrenuti containeri
