@@ -24,7 +24,8 @@ namespace eGym.UI.Desktop
             }
             catch(Exception ex) 
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -36,7 +37,8 @@ namespace eGym.UI.Desktop
             }
             catch(Exception ex) 
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
 
         }
@@ -69,6 +71,7 @@ namespace eGym.UI.Desktop
             {
                 if (selectedUser == null)
                 {
+                    labelError.Text = "Desila se greska";
                     MessageBox.Show("Morate odabrati korisnika");
                     return;
                 }
@@ -85,11 +88,13 @@ namespace eGym.UI.Desktop
 
                 selectedUser = null;
 
-                MessageBox.Show("Uspjesno obrisan korisnik");
+                labelError.Text = "Uspjesno obrisan korisnik";
+                //MessageBox.Show("Uspjesno obrisan korisnik");
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -99,19 +104,22 @@ namespace eGym.UI.Desktop
             {
                 if (!ValidateChildren(ValidationConstraints.Enabled))
                 {
-                    MessageBox.Show("Morate unijete sva obavezna polja");
+                    labelError.Text = "Morate unijete sva obavezna polja";
+                    //MessageBox.Show("Morate unijete sva obavezna polja");
                     return;
                 }
 
                 if (!rbZensko.Checked && !rbMale.Checked)
                 {
-                    MessageBox.Show("Morate odabrati pol");
+                    labelError.Text = "Morate odabrati pol";
+                    //MessageBox.Show("Morate odabrati pol");
                     return;
                 }
 
                 if (selectedUser == null)
                 {
-                    MessageBox.Show("Morate odabrati korisnika");
+                    labelError.Text = "Morate odabrati korisnika";
+                    //MessageBox.Show("Morate odabrati korisnika");
                     return;
                 }
 
@@ -128,11 +136,13 @@ namespace eGym.UI.Desktop
 
                 dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
 
-                MessageBox.Show("Uspjesno updatevon korisnik");
+                labelError.Text = "Uspjesno updatevon korisnik";
+                //MessageBox.Show("Uspjesno updatevon korisnik");
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 

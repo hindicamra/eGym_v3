@@ -43,6 +43,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrainings)).BeginInit();
             this.SuspendLayout();
             // 
@@ -190,12 +191,21 @@
             this.label3.TabIndex = 18;
             this.label3.Text = "Klijent";
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(12, 459);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.TabIndex = 28;
+            // 
             // frmReservationsOverview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(732, 453);
+            this.ClientSize = new System.Drawing.Size(732, 483);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.rtxbDescription);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.dtpTo);
@@ -239,5 +249,6 @@
         private Label label5;
         private Label label4;
         private Label label3;
+        private Label labelError;
     }
 }

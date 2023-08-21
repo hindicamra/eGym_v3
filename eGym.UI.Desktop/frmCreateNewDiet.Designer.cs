@@ -40,6 +40,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -152,12 +153,21 @@
             // 
             this.errorProviderApp.ContainerControl = this;
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(17, 439);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.TabIndex = 54;
+            // 
             // frmCreateNewDiet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(410, 440);
+            this.ClientSize = new System.Drawing.Size(410, 463);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.cmbMeal);
             this.Controls.Add(this.cmbDay);
             this.Controls.Add(this.btnSave);
@@ -192,5 +202,6 @@
         private Label label3;
         private Label label2;
         private ErrorProvider errorProviderApp;
+        private Label labelError;
     }
 }

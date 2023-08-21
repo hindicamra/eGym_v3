@@ -35,6 +35,7 @@
             this.dgvTraining = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCreateNewTraining = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTraining)).BeginInit();
             this.SuspendLayout();
@@ -113,12 +114,21 @@
             this.btnCreateNewTraining.UseVisualStyleBackColor = true;
             this.btnCreateNewTraining.Click += new System.EventHandler(this.btnCreateNewTraining_Click);
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(10, 573);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.TabIndex = 60;
+            // 
             // frmTraining
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(897, 578);
+            this.ClientSize = new System.Drawing.Size(897, 597);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.btnCreateNewTraining);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvTraining);
@@ -146,5 +156,6 @@
         private DataGridView dgvTraining;
         private Label label5;
         private Button btnCreateNewTraining;
+        private Label labelError;
     }
 }

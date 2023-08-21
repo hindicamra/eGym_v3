@@ -22,7 +22,8 @@ namespace eGym.UI.Desktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -35,7 +36,8 @@ namespace eGym.UI.Desktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -52,7 +54,8 @@ namespace eGym.UI.Desktop
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -60,7 +63,8 @@ namespace eGym.UI.Desktop
         {
             if (selectedUser == null) 
             {
-                MessageBox.Show("Morate odabrati korisnika");
+                labelError.Text = "Morate odabrati korisnika";
+                //MessageBox.Show("Morate odabrati korisnika");
                 return;
             };
             frmCreateNewDiet frm = new frmCreateNewDiet(selectedUser);

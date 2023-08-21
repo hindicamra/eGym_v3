@@ -21,19 +21,22 @@ namespace eGym.UI.Desktop
             {
                 if (!ValidateChildren(ValidationConstraints.Enabled))
                 {
-                    MessageBox.Show("Morate unijete opis obroka");
+                    labelError.Text = "Morate unijete opis obroka";
+                    //MessageBox.Show("Morate unijete opis obroka");
                     return;
                 }
 
                 if (cmbDay.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Morate odabrati dan");
+                    labelError.Text = "Morate odabrati dan";
+                    //MessageBox.Show("Morate odabrati dan");
                     return;
                 }
 
                 if (cmbMeal.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Morate odabrati obrok");
+                    labelError.Text = "Morate odabrati obrok";
+                    //MessageBox.Show("Morate odabrati obrok");
                     return;
                 }
 
@@ -47,12 +50,14 @@ namespace eGym.UI.Desktop
 
                 await _service.Post<DietDTO>(request);
 
-                MessageBox.Show("Uspjesno kreiran");
+                labelError.Text = "Uspjesno kreiran";
+                //MessageBox.Show("Uspjesno kreiran");
                 this.Close();
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 

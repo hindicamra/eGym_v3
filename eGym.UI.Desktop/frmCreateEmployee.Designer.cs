@@ -50,6 +50,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
@@ -243,12 +244,21 @@
             // 
             this.errorProviderApp.ContainerControl = this;
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(28, 392);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.TabIndex = 19;
+            // 
             // frmCreateEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(437, 400);
+            this.ClientSize = new System.Drawing.Size(437, 416);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cbRole);
@@ -301,5 +311,6 @@
         private Label label9;
         private TextBox txtEmail;
         private ErrorProvider errorProviderApp;
+        private Label labelError;
     }
 }

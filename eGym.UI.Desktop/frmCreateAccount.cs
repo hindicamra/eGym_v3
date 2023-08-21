@@ -19,13 +19,15 @@ namespace eGym.UI.Desktop
             {
                 if (!ValidateChildren(ValidationConstraints.Enabled))
                 {
-                    MessageBox.Show("Morate unijete sva obavezna polja");
+                    labelError.Text = "Morate unijete sva obavezna polja";
+                    //MessageBox.Show("Morate unijete sva obavezna polja");
                     return;
                 }
 
                 if(!rbFemale.Checked && !rbMale.Checked)
                 {
-                    MessageBox.Show("Morate odabrati pol");
+                    labelError.Text = "Morate odabrati pol";
+                    //MessageBox.Show("Morate odabrati pol");
                     return;
                 }
 
@@ -49,12 +51,14 @@ namespace eGym.UI.Desktop
                 }
 
                 await _service.Post<AccountDTO>(request);
-                MessageBox.Show("Uspjesno krairan korisnik");
+                labelError.Text = "Uspjesno krairan korisnik";
+                //MessageBox.Show("Uspjesno krairan korisnik");
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 

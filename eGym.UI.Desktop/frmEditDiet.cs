@@ -31,19 +31,22 @@ public partial class frmEditDiet : Form
         {
             if (!ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Morate unijete opis obroka");
+                labelError.Text = "Morate unijete opis obroka";
+                //MessageBox.Show("Morate unijete opis obroka");
                 return;
             }
 
             if (cmbDay.SelectedIndex == -1)
             {
-                MessageBox.Show("Morate odabrati dan");
+                labelError.Text = "Morate odabrati dan";
+                //MessageBox.Show("Morate odabrati dan");
                 return;
             }
 
             if (cmbMeal.SelectedIndex == -1)
             {
-                MessageBox.Show("Morate odabrati obrok");
+                labelError.Text = "Morate odabrati obrok";
+                //MessageBox.Show("Morate odabrati obrok");
                 return;
             }
 
@@ -55,11 +58,13 @@ public partial class frmEditDiet : Form
             };
 
             await _service.Put<DietDTO>(diet.DietId, request);
-            MessageBox.Show("Uspjesno updatovan");
+            labelError.Text = "Uspjesno updatovan";
+            //MessageBox.Show("Uspjesno updatovan");
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Desila se greska");
+            labelError.Text = "Desila se greska";
+            //MessageBox.Show("Desila se greska");
         }
     }
 
@@ -73,11 +78,13 @@ public partial class frmEditDiet : Form
             cmbDay.SelectedIndex = 0;
             rtxtDescription.Text = "";
 
-            MessageBox.Show("Uspjesno obrisan unos");
+            labelError.Text = "Uspjesno obrisan unos";
+            //MessageBox.Show("Uspjesno obrisan unos");
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Desila se greska");
+            labelError.Text = "Desila se greska";
+            //MessageBox.Show("Desila se greska");
         }
     }
 

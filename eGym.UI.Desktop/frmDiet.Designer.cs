@@ -35,6 +35,7 @@
             this.dgvDiet = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.btnCreateNew = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDiet)).BeginInit();
             this.SuspendLayout();
@@ -113,12 +114,21 @@
             this.btnCreateNew.UseVisualStyleBackColor = true;
             this.btnCreateNew.Click += new System.EventHandler(this.btnCreateNew_Click);
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(12, 587);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.TabIndex = 47;
+            // 
             // frmDiet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(896, 584);
+            this.ClientSize = new System.Drawing.Size(896, 611);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.btnCreateNew);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dgvDiet);
@@ -147,5 +157,6 @@
         private DataGridView dgvDiet;
         private Label label7;
         private Button btnCreateNew;
+        private Label labelError;
     }
 }

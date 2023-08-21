@@ -30,13 +30,15 @@ public partial class frmEditTraining : Form
         {
             if (!ValidateChildren(ValidationConstraints.Enabled))
             {
-                MessageBox.Show("Morate unijete opis treninga");
+                labelError.Text = "Morate unijete opis treninga";
+                //MessageBox.Show("Morate unijete opis treninga");
                 return;
             }
 
             if (cmbDay.SelectedIndex == -1)
             {
-                MessageBox.Show("Morate odabrati dan");
+                labelError.Text = "Morate odabrati dan";
+                //MessageBox.Show("Morate odabrati dan");
                 return;
             }
 
@@ -47,11 +49,13 @@ public partial class frmEditTraining : Form
             };
 
             await _service.Put<TrainingDTO>(training.TrainingId, request);
-            MessageBox.Show("Uspjesno updatovan");
+            labelError.Text = "Uspjesno updatovan";
+            //MessageBox.Show("Uspjesno updatovan");
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Desila se greska");
+            labelError.Text = "Desila se greska";
+            //MessageBox.Show("Desila se greska");
         }
     }
 
@@ -65,11 +69,13 @@ public partial class frmEditTraining : Form
             cmbDay.SelectedIndex = 0;
             rtxtDescription.Text = "";
 
-            MessageBox.Show("Uspjesno obrisan unos");
+            labelError.Text = "Uspjesno obrisan unos";
+            //MessageBox.Show("Uspjesno obrisan unos");
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Desila se greska");
+            labelError.Text = "Desila se greska";
+            //MessageBox.Show("Desila se greska");
         }
     }
 

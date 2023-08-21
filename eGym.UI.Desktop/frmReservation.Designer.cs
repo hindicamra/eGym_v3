@@ -44,6 +44,7 @@
             this.rtxbDescription = new System.Windows.Forms.RichTextBox();
             this.btnDecline = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReservations)).BeginInit();
             this.SuspendLayout();
             // 
@@ -203,12 +204,21 @@
             this.btnAccept.UseVisualStyleBackColor = true;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(12, 642);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.TabIndex = 18;
+            // 
             // frmReservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(849, 642);
+            this.ClientSize = new System.Drawing.Size(849, 666);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.btnDecline);
             this.Controls.Add(this.rtxbDescription);
@@ -254,5 +264,6 @@
         private RichTextBox rtxbDescription;
         private Button btnDecline;
         private Button btnAccept;
+        private Label labelError;
     }
 }

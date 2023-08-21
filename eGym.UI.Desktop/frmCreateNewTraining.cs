@@ -21,13 +21,15 @@ namespace eGym.UI.Desktop
             {
                 if (!ValidateChildren(ValidationConstraints.Enabled))
                 {
-                    MessageBox.Show("Morate unijete opis treninga");
+                    labelError.Text = "Morate unijete opis treninga";
+                    //MessageBox.Show("Morate unijete opis treninga");
                     return;
                 }
 
                 if (cmbDay.SelectedIndex == -1)
                 {
-                    MessageBox.Show("Morate odabrati dan");
+                    labelError.Text = "Morate odabrati dan";
+                    //MessageBox.Show("Morate odabrati dan");
                     return;
                 }
 
@@ -40,12 +42,14 @@ namespace eGym.UI.Desktop
 
                 await _service.Post<TrainingDTO>(request);
 
-                MessageBox.Show("Uspjesno kreiran");
+                labelError.Text = "Uspjesno kreiran";
+                //MessageBox.Show("Uspjesno kreiran");
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 

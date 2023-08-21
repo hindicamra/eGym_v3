@@ -27,7 +27,8 @@ namespace eGym.UI.Desktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -49,7 +50,8 @@ namespace eGym.UI.Desktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -70,7 +72,8 @@ namespace eGym.UI.Desktop
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Desila se greska");
+                labelError.Text = "Desila se greska";
+                //MessageBox.Show("Desila se greska");
             }
         }
 

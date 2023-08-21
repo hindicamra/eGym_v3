@@ -34,6 +34,7 @@
             this.txbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -92,12 +93,21 @@
             this.label3.TabIndex = 5;
             this.label3.Text = "Fitness centar";
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(15, 116);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.TabIndex = 6;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(268, 124);
+            this.ClientSize = new System.Drawing.Size(268, 140);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txbPassword);
@@ -123,5 +133,6 @@
         private TextBox txbPassword;
         private Button btnLogin;
         private Label label3;
+        private Label labelError;
     }
 }
