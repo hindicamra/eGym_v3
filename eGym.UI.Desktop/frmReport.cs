@@ -83,7 +83,16 @@ namespace eGym.UI.Desktop
 
 
                 var client = new HttpClient();
-                var request = new HttpRequestMessage(HttpMethod.Get, Settings.Default.APIUrl+"Report/finance?token=RSIIeGym");
+
+                string getEnv = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+                string APIUrl = "";
+                if (getEnv == "Development")
+                    APIUrl = Settings.Default.APIUrlLocal;
+                if (getEnv == "Production")
+                    APIUrl = Settings.Default.APIUrlProduction;
+
+                var request = new HttpRequestMessage(HttpMethod.Get, APIUrl + "Report/finance?token=RSIIeGym");
+
                 var response = await client.SendAsync(request);
                 string json = await response.Content.ReadAsStringAsync();
                 List<Payment> payments = JsonConvert.DeserializeObject<List<Payment>>(json);
