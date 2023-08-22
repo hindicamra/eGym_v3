@@ -40,6 +40,7 @@
             this.zahtjevZaTerminimaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pregledRasporedaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izjestajiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.servisiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +54,8 @@
             this.planTreningaToolStripMenuItem,
             this.zahtjevZaTerminimaToolStripMenuItem,
             this.pregledRasporedaToolStripMenuItem,
-            this.izjestajiToolStripMenuItem});
+            this.izjestajiToolStripMenuItem,
+            this.servisiToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
@@ -98,14 +100,14 @@
             // pregledToolStripMenuItem1
             // 
             this.pregledToolStripMenuItem1.Name = "pregledToolStripMenuItem1";
-            this.pregledToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.pregledToolStripMenuItem1.Size = new System.Drawing.Size(114, 22);
             this.pregledToolStripMenuItem1.Text = "Pregled";
             this.pregledToolStripMenuItem1.Click += new System.EventHandler(this.pregledToolStripMenuItem1_Click);
             // 
             // noviToolStripMenuItem
             // 
             this.noviToolStripMenuItem.Name = "noviToolStripMenuItem";
-            this.noviToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.noviToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.noviToolStripMenuItem.Text = "Novi";
             this.noviToolStripMenuItem.Click += new System.EventHandler(this.noviToolStripMenuItem_Click);
             // 
@@ -144,6 +146,13 @@
             this.izjestajiToolStripMenuItem.Text = "Izvjestaji";
             this.izjestajiToolStripMenuItem.Click += new System.EventHandler(this.izjestajiToolStripMenuItem_Click);
             // 
+            // servisiToolStripMenuItem
+            // 
+            this.servisiToolStripMenuItem.Name = "servisiToolStripMenuItem";
+            this.servisiToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.servisiToolStripMenuItem.Text = "Servisi";
+            this.servisiToolStripMenuItem.Click += new System.EventHandler(this.servisiToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -178,5 +187,6 @@
         private ToolStripMenuItem noviUposlenikToolStripMenuItem;
         private ToolStripMenuItem pregledToolStripMenuItem1;
         private ToolStripMenuItem noviToolStripMenuItem;
+        private ToolStripMenuItem servisiToolStripMenuItem;
     }
 }

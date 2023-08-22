@@ -85,5 +85,12 @@
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void servisiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmService frm = new frmService();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }
