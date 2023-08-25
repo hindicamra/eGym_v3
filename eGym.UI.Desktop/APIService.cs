@@ -47,6 +47,7 @@ namespace eGym.UI.Desktop
                 if (ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
+                    throw ex;
                 }
 
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
@@ -74,6 +75,7 @@ namespace eGym.UI.Desktop
                 if(ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
+                    throw ex;
                 }
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
@@ -85,64 +87,6 @@ namespace eGym.UI.Desktop
 
                 MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return default(T);
-            }
-        }
-
-        public async Task<T> Post<T>(object request, string path = "")
-        {
-            try
-            {
-                var query = "";
-                if (request != null)
-                {
-                    query = await request.ToQueryString();
-                }
-
-                var result = await $"{_endpoint}{_resource}{path}?{query}".WithBasicAuth(Username, Password).PostAsync().ReceiveJson<T>();
-                return result;
-            }
-            catch (FlurlHttpException ex)
-            {
-                if (ex.StatusCode == 403)
-                {
-                    MessageBox.Show("Nemate pravo pristupa");
-                }
-
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
-                var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
-                {
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-                }
-
-                MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return default(T);
-            }
-        }
-
-        public async Task Get(string path)
-        {
-            try
-            {
-                var result = await $"{_endpoint}{_resource}/{path}".WithBasicAuth(Username, Password).GetAsync();
-            }
-            catch (FlurlHttpException ex)
-            {
-                if (ex.StatusCode == 403)
-                {
-                    MessageBox.Show("Nemate pravo pristupa");
-                }
-
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
-                var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
-                {
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-                }
-
-                MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -165,6 +109,7 @@ namespace eGym.UI.Desktop
                 if (ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
+                    throw ex;
                 }
 
                 return default;
@@ -205,6 +150,7 @@ namespace eGym.UI.Desktop
                 if (ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
+                    throw ex;
                 }
             }
         }
