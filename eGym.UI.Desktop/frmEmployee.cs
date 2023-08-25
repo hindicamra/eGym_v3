@@ -9,6 +9,7 @@ namespace eGym.UI.Desktop
     {
         private readonly APIService _service = new APIService("Employee");
         private EmployeeDTO selectedEmployee = new EmployeeDTO();
+        bool ValidationInput1 = false, ValidationInput2 = false, ValidationInput3 = false, ValidationInput4 = false, ValidationInput5 = false;
 
         public frmEmployee()
         {
@@ -26,6 +27,8 @@ namespace eGym.UI.Desktop
             {
                 labelError.Text = "Desila se greska";
             }
+
+            btnDelete.Enabled = btnSave.Enabled = false;
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -77,55 +80,122 @@ namespace eGym.UI.Desktop
         {
             try
             {
-                if (!ValidateChildren(ValidationConstraints.Enabled))
+                if (txtName.Text != "")
                 {
-                    labelError.Text = "Morate unijete sva obavezna polja";
-                    return;
-                }
-
-                if (!rbZensko.Checked && !rbMale.Checked)
-                {
-                    labelError.Text = "Morate odabrati pol";
-                    return;
-                }
-
-                Role role = Role.Employee;
-                if (comboBox1.SelectedIndex == -1)
-                {
-                    labelError.Text = "Morate odabrati rolu";
-                    return;
+                    txtName.BackColor = SystemColors.Window;
+                    txtName.ForeColor = SystemColors.WindowText;
+                    txtName.BorderStyle = BorderStyle.FixedSingle;
+                    ValidationInput1 = false;
                 }
                 else
                 {
-                    if (comboBox1.SelectedIndex==0)
-                        role = Role.Admin;
-                    if (comboBox1.SelectedIndex == 1)
-                        role = Role.Employee;
+                    txtName.BackColor = Color.LightPink;
+                    txtName.ForeColor = Color.Red;
+                    txtName.BorderStyle = BorderStyle.Fixed3D;
+                    ValidationInput1 = true;
+                }
+                if (txtLastName.Text != "")
+                {
+                    txtLastName.BackColor = SystemColors.Window;
+                    txtLastName.ForeColor = SystemColors.WindowText;
+                    txtLastName.BorderStyle = BorderStyle.FixedSingle;
+                    ValidationInput2 = false;
+                }
+                else
+                {
+                    txtLastName.BackColor = Color.LightPink;
+                    txtLastName.ForeColor = Color.Red;
+                    txtLastName.BorderStyle = BorderStyle.Fixed3D;
+                    ValidationInput2 = true;
+                }
+                if ((rbZensko.Checked && !rbMale.Checked) || (!rbZensko.Checked && rbMale.Checked))
+                {
+                    rbZensko.BackColor = SystemColors.Window;
+                    rbZensko.ForeColor = SystemColors.WindowText;
+
+                    rbMale.BackColor = SystemColors.Window;
+                    rbMale.ForeColor = SystemColors.WindowText;
+                    ValidationInput3 = false;
+                }
+                else
+                {
+                    rbZensko.BackColor = Color.LightPink;
+                    rbZensko.ForeColor = Color.Red;
+
+                    rbMale.BackColor = SystemColors.Window;
+                    rbMale.ForeColor = SystemColors.WindowText;
+                    ValidationInput3 = true;
+                }
+                if (txtName.Text != "")
+                {
+                    txtUsername.BackColor = SystemColors.Window;
+                    txtUsername.ForeColor = SystemColors.WindowText;
+                    txtUsername.BorderStyle = BorderStyle.FixedSingle;
+                    ValidationInput4 = false;
+                }
+                else
+                {
+                    txtUsername.BackColor = Color.LightPink;
+                    txtUsername.ForeColor = Color.Red;
+                    txtUsername.BorderStyle = BorderStyle.Fixed3D;
+                    ValidationInput4 = true;
+                }
+                if (txtPassword.Text != "")
+                {
+                    txtPassword.BackColor = SystemColors.Window;
+                    txtPassword.ForeColor = SystemColors.WindowText;
+                    txtPassword.BorderStyle = BorderStyle.FixedSingle;
+                    ValidationInput5 = false;
+                }
+                else
+                {
+                    txtPassword.BackColor = Color.LightPink;
+                    txtPassword.ForeColor = Color.Red;
+                    txtPassword.BorderStyle = BorderStyle.Fixed3D;
+                    ValidationInput5 = true;
                 }
 
-                if (selectedEmployee == null)
+                if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3 && !ValidationInput4 && !ValidationInput5 && selectedEmployee != null)
                 {
-                    labelError.Text = "Morate odabrati korisnika";
-                    return;
+                    Role role = Role.Employee;
+                    if (comboBox1.SelectedIndex == -1)
+                    {
+                        labelError.Text = "Morate odabrati rolu";
+                        return;
+                    }
+                    else
+                    {
+                        if (comboBox1.SelectedIndex == 0)
+                            role = Role.Admin;
+                        if (comboBox1.SelectedIndex == 1)
+                            role = Role.Employee;
+                    }
+
+                    if (selectedEmployee == null)
+                    {
+                        labelError.Text = "Morate odabrati korisnika";
+                        return;
+                    }
+
+                    var request = new UpdateAccountRequest()
+                    {
+                        FirstName = txtName.Text,
+                        LastName = txtLastName.Text,
+                        BirthDate = dateTimePicker1.Value,
+                        Username = txtUsername.Text,
+                        Password = txtPassword.Text,
+                        Role = role
+
+                    };
+
+                    await _service.Put<EmployeeDTO>(selectedEmployee.EmployeeId, request);
+
+                    dgvEmployee.DataSource = await _service.Get<List<EmployeeDTO>>(null, "/getAll");
+                    dgvEmployee.Columns["EmployeeId"].Visible = false;
+
+                    labelError.Text = "Uspjesno updatovan uposlenik";
+                    btnDelete.Enabled = btnSave.Enabled = false;
                 }
-
-                var request = new UpdateAccountRequest()
-                {
-                    FirstName = txtName.Text,
-                    LastName = txtLastName.Text,
-                    BirthDate = dateTimePicker1.Value,
-                    Username = txtUsername.Text,
-                    Password = txtPassword.Text,
-                    Role = role
-                    
-                };
-
-                await _service.Put<EmployeeDTO>(selectedEmployee.EmployeeId, request);
-
-                dgvEmployee.DataSource = await _service.Get<List<EmployeeDTO>>(null, "/getAll");
-                dgvEmployee.Columns["EmployeeId"].Visible = false;
-
-                labelError.Text = "Uspjesno updatovan uposlenik";
             }
             catch(Exception ex)
             {
@@ -153,6 +223,10 @@ namespace eGym.UI.Desktop
             else
             {
                 rbMale.Checked = true;
+            }
+            if (selectedEmployee!=null)
+            {
+                btnDelete.Enabled = btnSave.Enabled = true;
             }
         }
 

@@ -101,6 +101,7 @@ namespace eGym.UI.Desktop
                 selectedUser = null;
 
                 labelError.Text = "Uspjesno obrisan korisnik";
+                btnSave.Enabled = btnDelete.Enabled = false;
             }
             catch(Exception ex)
             {
@@ -191,26 +192,6 @@ namespace eGym.UI.Desktop
                     txtPassword.BorderStyle = BorderStyle.Fixed3D;
                     ValidationInput5 = true;
                 }
-
-
-
-                //if (!ValidateChildren(ValidationConstraints.Enabled))
-                //{
-                //    labelError.Text = "Morate unijete sva obavezna polja";
-                //    return;
-                //}
-
-                //if (!rbZensko.Checked && !rbMale.Checked)
-                //{
-                //    labelError.Text = "Morate odabrati pol";
-                //    return;
-                //}
-
-                //if (selectedUser == null)
-                //{
-                //    labelError.Text = "Morate odabrati korisnika";
-                //    return;
-                //}
 
                 if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3 && !ValidationInput4 && !ValidationInput5 && selectedUser!=null)
                 {
