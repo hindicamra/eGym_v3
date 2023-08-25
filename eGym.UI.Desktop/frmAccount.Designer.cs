@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -51,45 +50,37 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.dgvAccount = new System.Windows.Forms.DataGridView();
-            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(487, 494);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPassword.Location = new System.Drawing.Point(557, 659);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(219, 23);
+            this.txtPassword.Size = new System.Drawing.Size(250, 27);
             this.txtPassword.TabIndex = 48;
-            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPassword_Validating);
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(180, 494);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsername.Location = new System.Drawing.Point(206, 659);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(219, 23);
+            this.txtUsername.Size = new System.Drawing.Size(250, 27);
             this.txtUsername.TabIndex = 47;
-            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxUserName_Validating);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(180, 467);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dateTimePicker1.Location = new System.Drawing.Point(206, 623);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(219, 23);
+            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
             this.dateTimePicker1.TabIndex = 46;
             // 
             // rbZensko
             // 
             this.rbZensko.AutoSize = true;
-            this.rbZensko.Location = new System.Drawing.Point(336, 444);
-            this.rbZensko.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbZensko.Location = new System.Drawing.Point(384, 592);
             this.rbZensko.Name = "rbZensko";
-            this.rbZensko.Size = new System.Drawing.Size(63, 19);
+            this.rbZensko.Size = new System.Drawing.Size(77, 24);
             this.rbZensko.TabIndex = 45;
             this.rbZensko.TabStop = true;
             this.rbZensko.Text = "Zensko";
@@ -98,10 +89,9 @@
             // rbMale
             // 
             this.rbMale.AutoSize = true;
-            this.rbMale.Location = new System.Drawing.Point(180, 444);
-            this.rbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbMale.Location = new System.Drawing.Point(206, 592);
             this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(61, 19);
+            this.rbMale.Size = new System.Drawing.Size(73, 24);
             this.rbMale.TabIndex = 44;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Musko";
@@ -109,59 +99,56 @@
             // 
             // label8
             // 
-            this.label8.Location = new System.Drawing.Point(405, 497);
+            this.label8.Location = new System.Drawing.Point(463, 663);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 16);
+            this.label8.Size = new System.Drawing.Size(87, 21);
             this.label8.TabIndex = 42;
             this.label8.Text = "Password";
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(12, 497);
+            this.label7.Location = new System.Drawing.Point(14, 663);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 16);
+            this.label7.Size = new System.Drawing.Size(87, 21);
             this.label7.TabIndex = 41;
             this.label7.Text = "Username";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(12, 473);
+            this.label6.Location = new System.Drawing.Point(14, 631);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 16);
+            this.label6.Size = new System.Drawing.Size(118, 21);
             this.label6.TabIndex = 40;
             this.label6.Text = "Datum rodjenja";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(12, 446);
+            this.label5.Location = new System.Drawing.Point(14, 595);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(62, 15);
+            this.label5.Size = new System.Drawing.Size(71, 20);
             this.label5.TabIndex = 39;
             this.label5.Text = "Spol";
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(487, 417);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtLastName.Location = new System.Drawing.Point(557, 556);
             this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(219, 23);
+            this.txtLastName.Size = new System.Drawing.Size(250, 27);
             this.txtLastName.TabIndex = 38;
-            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLastName_Validating);
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(405, 420);
+            this.label4.Location = new System.Drawing.Point(463, 560);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(62, 15);
+            this.label4.Size = new System.Drawing.Size(71, 20);
             this.label4.TabIndex = 37;
             this.label4.Text = "Prezime";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(577, 521);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSave.Location = new System.Drawing.Point(659, 695);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(129, 34);
+            this.btnSave.Size = new System.Drawing.Size(147, 45);
             this.btnSave.TabIndex = 36;
             this.btnSave.Text = "Spasi";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -169,10 +156,9 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(442, 521);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDelete.Location = new System.Drawing.Point(505, 695);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(129, 34);
+            this.btnDelete.Size = new System.Drawing.Size(147, 45);
             this.btnDelete.TabIndex = 35;
             this.btnDelete.Text = "Obrisi";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -180,37 +166,35 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(180, 417);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtName.Location = new System.Drawing.Point(206, 556);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(219, 23);
+            this.txtName.Size = new System.Drawing.Size(250, 27);
             this.txtName.TabIndex = 34;
-            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxName_Validating);
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(12, 420);
+            this.label3.Location = new System.Drawing.Point(14, 560);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 15);
+            this.label3.Size = new System.Drawing.Size(51, 20);
             this.label3.TabIndex = 33;
             this.label3.Text = "Ime";
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(213, 390);
-            this.txtId.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtId.Location = new System.Drawing.Point(243, 520);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(219, 23);
+            this.txtId.Size = new System.Drawing.Size(250, 27);
             this.txtId.TabIndex = 32;
             this.txtId.Visible = false;
+            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // ID
             // 
             this.ID.AutoSize = true;
-            this.ID.Location = new System.Drawing.Point(108, 395);
+            this.ID.Location = new System.Drawing.Point(123, 527);
             this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(18, 15);
+            this.ID.Size = new System.Drawing.Size(24, 20);
             this.ID.TabIndex = 31;
             this.ID.Text = "ID";
             this.ID.Visible = false;
@@ -218,28 +202,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 395);
+            this.label2.Location = new System.Drawing.Point(14, 527);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 15);
+            this.label2.Size = new System.Drawing.Size(115, 20);
             this.label2.TabIndex = 30;
             this.label2.Text = "Detalji korisnika";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(180, 8);
+            this.label1.Location = new System.Drawing.Point(206, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 15);
+            this.label1.Size = new System.Drawing.Size(101, 20);
             this.label1.TabIndex = 29;
             this.label1.Text = "Lista korisnika";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(180, 27);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Location = new System.Drawing.Point(206, 36);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnSearch.Size = new System.Drawing.Size(82, 22);
+            this.btnSearch.Size = new System.Drawing.Size(94, 29);
             this.btnSearch.TabIndex = 28;
             this.btnSearch.Text = "Pretrazi";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -247,42 +230,36 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(12, 26);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearch.Location = new System.Drawing.Point(14, 35);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(161, 23);
+            this.txtSearch.Size = new System.Drawing.Size(183, 27);
             this.txtSearch.TabIndex = 27;
             // 
             // dgvAccount
             // 
             this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAccount.Location = new System.Drawing.Point(12, 53);
-            this.dgvAccount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvAccount.Location = new System.Drawing.Point(14, 71);
             this.dgvAccount.Name = "dgvAccount";
             this.dgvAccount.RowHeadersWidth = 51;
             this.dgvAccount.RowTemplate.Height = 29;
-            this.dgvAccount.Size = new System.Drawing.Size(872, 340);
+            this.dgvAccount.Size = new System.Drawing.Size(997, 453);
             this.dgvAccount.TabIndex = 25;
             this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick);
-            // 
-            // errorProviderApp
-            // 
-            this.errorProviderApp.ContainerControl = this;
             // 
             // labelError
             // 
             this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(12, 567);
+            this.labelError.Location = new System.Drawing.Point(14, 756);
             this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.Size = new System.Drawing.Size(0, 20);
             this.labelError.TabIndex = 49;
             // 
             // frmAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(896, 591);
+            this.ClientSize = new System.Drawing.Size(1024, 788);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
@@ -306,13 +283,11 @@
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.dgvAccount);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "frmAccount";
             this.Text = "Korisnici";
             this.Load += new System.EventHandler(this.frmAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,7 +318,6 @@
         private TextBox txtSearch;
         private Button btnCreateEmployee;
         private DataGridView dgvAccount;
-        private ErrorProvider errorProviderApp;
         private Label labelError;
     }
 }
