@@ -143,6 +143,19 @@ namespace eGym.UI.Desktop
             serviceDTO = new ServiceDTO();
             textBox2.Text = textBox1.Text = richTextBox1.Text = "";
             buttonDelete.Visible = false;
+
+            textBox1.BackColor = SystemColors.Window;
+            textBox1.ForeColor = SystemColors.WindowText;
+            textBox1.BorderStyle = BorderStyle.FixedSingle;
+            ValidationInput1 = false;
+            textBox2.BackColor = SystemColors.Window;
+            textBox2.ForeColor = SystemColors.WindowText;
+            textBox2.BorderStyle = BorderStyle.FixedSingle;
+            ValidationInput2 = false;
+            richTextBox1.BackColor = SystemColors.Window;
+            richTextBox1.ForeColor = SystemColors.WindowText;
+            richTextBox1.BorderStyle = BorderStyle.FixedSingle;
+            ValidationInput3 = false;
         }
     }
 }
