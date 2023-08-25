@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace eGym.UI.Desktop
 {
@@ -19,6 +20,8 @@ namespace eGym.UI.Desktop
         private readonly APIService _service = new APIService("Service");
         List<ServiceDTO> services= new List<ServiceDTO>();
         ServiceDTO serviceDTO = new ServiceDTO();
+        
+        bool ValidationInput1 = false, ValidationInput2 = false, ValidationInput3 = false;
         public frmService()
         {
             InitializeComponent();
@@ -60,25 +63,74 @@ namespace eGym.UI.Desktop
 
         private async void buttonSave_Click(object sender, EventArgs e)
         {
-            var request = new UpdateServiceRequest()
+            if (textBox1.Text != "")
             {
-                ServiceId = serviceDTO.ServiceId,
-                Title = textBox2.Text,
-                Picture = textBox1.Text,
-                Descritption = richTextBox1.Text
-            };
-
-            if (serviceDTO.ServiceId==0)
-            {
-                await _service.Post<ServiceDTO>(request);
+                textBox1.BackColor = SystemColors.Window;
+                textBox1.ForeColor = SystemColors.WindowText;
+                textBox1.BorderStyle = BorderStyle.FixedSingle;
+                ValidationInput1 = false;
             }
-            else 
+            else
             {
-                await _service.Put<ServiceDTO>(serviceDTO.ServiceId, request);
+                textBox1.BackColor = Color.LightPink;
+                textBox1.ForeColor = Color.Red;
+                textBox1.BorderStyle = BorderStyle.Fixed3D;
+                ValidationInput1 = true;
             }
 
-            Cancel();
-            Reload();
+            if (textBox2.Text != "")
+            {
+                textBox2.BackColor = SystemColors.Window;
+                textBox2.ForeColor = SystemColors.WindowText;
+                textBox2.BorderStyle = BorderStyle.FixedSingle;
+                ValidationInput2 = false;
+            }
+            else
+            {
+                textBox2.BackColor = Color.LightPink;
+                textBox2.ForeColor = Color.Red;
+                textBox2.BorderStyle = BorderStyle.Fixed3D;
+                ValidationInput2 = true;
+            }
+
+            if (richTextBox1.Text != "")
+            {
+                richTextBox1.BackColor = SystemColors.Window;
+                richTextBox1.ForeColor = SystemColors.WindowText;
+                richTextBox1.BorderStyle = BorderStyle.FixedSingle;
+                ValidationInput3 = false;
+            }
+            else
+            {
+                richTextBox1.BackColor = Color.LightPink;
+                richTextBox1.ForeColor = Color.Red;
+                richTextBox1.BorderStyle = BorderStyle.Fixed3D;
+                ValidationInput3 = true;
+            }
+
+
+            if (textBox1.Text != "" && textBox2.Text != "" && richTextBox1.Text != "")
+            {
+                var request = new UpdateServiceRequest()
+                {
+                    ServiceId = serviceDTO.ServiceId,
+                    Title = textBox2.Text,
+                    Picture = textBox1.Text,
+                    Descritption = richTextBox1.Text
+                };
+
+                if (serviceDTO.ServiceId == 0)
+                {
+                    await _service.Post<ServiceDTO>(request);
+                }
+                else
+                {
+                    await _service.Put<ServiceDTO>(serviceDTO.ServiceId, request);
+                }
+
+                Cancel();
+                Reload();
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
