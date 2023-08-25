@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,9 +48,7 @@
             this.cbRole = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelError = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -149,7 +146,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(219, 23);
             this.txtName.TabIndex = 9;
-            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxName_Validating);
             // 
             // txtLastName
             // 
@@ -158,7 +154,6 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(219, 23);
             this.txtLastName.TabIndex = 10;
-            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLastName_Validating);
             // 
             // txtUsername
             // 
@@ -167,7 +162,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(219, 23);
             this.txtUsername.TabIndex = 11;
-            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxUserName_Validating);
             // 
             // txtPassword
             // 
@@ -176,7 +170,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(219, 23);
             this.txtPassword.TabIndex = 12;
-            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPassword_Validating);
             // 
             // rbMale
             // 
@@ -238,11 +231,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(219, 23);
             this.txtEmail.TabIndex = 18;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEmail_Validating);
-            // 
-            // errorProviderApp
-            // 
-            this.errorProviderApp.ContainerControl = this;
             // 
             // labelError
             // 
@@ -282,7 +270,6 @@
             this.MaximizeBox = false;
             this.Name = "frmCreateEmployee";
             this.Text = "Create Employee";
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,7 +297,6 @@
         private ComboBox cbRole;
         private Label label9;
         private TextBox txtEmail;
-        private ErrorProvider errorProviderApp;
         private Label labelError;
     }
 }
