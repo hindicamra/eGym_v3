@@ -25,7 +25,6 @@ namespace eGym.UI.Desktop
             catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -39,7 +38,6 @@ namespace eGym.UI.Desktop
             catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -50,7 +48,6 @@ namespace eGym.UI.Desktop
                 if (selectedEmployee == null)
                 {
                     labelError.Text = "Morate odabrati korisnika";
-                    //MessageBox.Show("Morate odabrati korisnika");
                     return;
                 }
                 await _service.Delete(new { id = selectedEmployee.EmployeeId });
@@ -69,12 +66,10 @@ namespace eGym.UI.Desktop
                 selectedEmployee = null;
 
                 labelError.Text = "Uspjesno obirsan uposlenik";
-                //MessageBox.Show("Uspjesno obirsan uposlenik");
             }
             catch(Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -85,14 +80,12 @@ namespace eGym.UI.Desktop
                 if (!ValidateChildren(ValidationConstraints.Enabled))
                 {
                     labelError.Text = "Morate unijete sva obavezna polja";
-                    //MessageBox.Show("Morate unijete sva obavezna polja");
                     return;
                 }
 
                 if (!rbZensko.Checked && !rbMale.Checked)
                 {
                     labelError.Text = "Morate odabrati pol";
-                    //MessageBox.Show("Morate odabrati pol");
                     return;
                 }
 
@@ -100,7 +93,6 @@ namespace eGym.UI.Desktop
                 if (comboBox1.SelectedIndex == -1)
                 {
                     labelError.Text = "Morate odabrati rolu";
-                    //MessageBox.Show("Morate odabrati rolu");
                     return;
                 }
                 else
@@ -114,7 +106,6 @@ namespace eGym.UI.Desktop
                 if (selectedEmployee == null)
                 {
                     labelError.Text = "Morate odabrati korisnika";
-                    //MessageBox.Show("Morate odabrati korisnika");
                     return;
                 }
 
@@ -134,13 +125,11 @@ namespace eGym.UI.Desktop
                 dgvEmployee.DataSource = await _service.Get<List<EmployeeDTO>>(null, "/getAll");
                 dgvEmployee.Columns["EmployeeId"].Visible = false;
 
-                labelError.Text = "Uspjesno updatevon uposlenik";
-                //MessageBox.Show("Uspjesno updatevon uposlenik");
+                labelError.Text = "Uspjesno updatovan uposlenik";
             }
             catch(Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 

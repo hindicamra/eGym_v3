@@ -15,10 +15,9 @@ namespace eGym.UI.Desktop
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            if (txbUsername.Text=="" || txbPassword.Text == "")
+            if (txbUsername.Text== "" || txbPassword.Text == "")
             {
                 labelError.Text = "Morate unijete username i/ili password";
-                //MessageBox.Show("Morate unijete username i/ili password");
                 return;
             }
 
@@ -42,7 +41,6 @@ namespace eGym.UI.Desktop
             catch (Exception ex)
             {
                 labelError.Text = "Pogresan username ili password";
-                //MessageBox.Show("Pogresan username ili password");
             }
         }
     }

@@ -20,14 +20,12 @@ namespace eGym.UI.Desktop
                 if (!ValidateChildren(ValidationConstraints.Enabled))
                 {
                     labelError.Text = "Morate unijete sva obavezna polja";
-                    //MessageBox.Show("Morate unijete sva obavezna polja");
                     return;
                 }
 
                 if(!rbFemale.Checked && !rbMale.Checked)
                 {
                     labelError.Text = "Morate odabrati pol";
-                    //MessageBox.Show("Morate odabrati pol");
                     return;
                 }
 
@@ -52,13 +50,11 @@ namespace eGym.UI.Desktop
 
                 await _service.Post<AccountDTO>(request);
                 labelError.Text = "Uspjesno krairan korisnik";
-                //MessageBox.Show("Uspjesno krairan korisnik");
                 this.Close();
             }
             catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 

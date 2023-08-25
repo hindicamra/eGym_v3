@@ -3,8 +3,6 @@ using eGym.Domain;
 using eGym.UI.Desktop.Properties;
 using eGym.UI.Desktop.Reports;
 using Newtonsoft.Json;
-using System.Diagnostics;
-using System.Web;
 
 namespace eGym.UI.Desktop
 {
@@ -14,48 +12,6 @@ namespace eGym.UI.Desktop
         public frmReport()
         {
             InitializeComponent();
-        }
-
-        //private async void btnFinance_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        var token = await _service.Get<Token>(null, "/token");
-        //        Process.Start(new ProcessStartInfo($"{APIService._endpoint}Report/finance?token={token.Key}") { UseShellExecute = true });
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Desila se greska");
-        //    }
-        //}
-
-        //private async void btnEmployees_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        var token = await _service.Get<Token>(null, "/token");
-        //        if (token != null)
-        //        {
-        //            Process.Start(new ProcessStartInfo($"{APIService._endpoint}Report/employees?token={token.Key}") { UseShellExecute = true });
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Desila se greska");
-        //    }
-        //}
-
-        private async void btnUsers_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //var token = await _service.Get<Token>(null, "/token");
-                //Process.Start(new ProcessStartInfo($"{APIService._endpoint}Report/users?token={token.Key}") { UseShellExecute = true });
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Desila se greska");
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)

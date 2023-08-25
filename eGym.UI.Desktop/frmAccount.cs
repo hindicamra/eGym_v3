@@ -1,5 +1,4 @@
 ﻿using eGym.BLL.Models;
-using eGym.BLL.Models.Enums;
 using eGym.BLL.Models.Requests;
 using System.ComponentModel;
 
@@ -25,7 +24,6 @@ namespace eGym.UI.Desktop
             catch(Exception ex) 
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -38,7 +36,6 @@ namespace eGym.UI.Desktop
             catch(Exception ex) 
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
 
         }
@@ -89,12 +86,10 @@ namespace eGym.UI.Desktop
                 selectedUser = null;
 
                 labelError.Text = "Uspjesno obrisan korisnik";
-                //MessageBox.Show("Uspjesno obrisan korisnik");
             }
             catch(Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -105,21 +100,18 @@ namespace eGym.UI.Desktop
                 if (!ValidateChildren(ValidationConstraints.Enabled))
                 {
                     labelError.Text = "Morate unijete sva obavezna polja";
-                    //MessageBox.Show("Morate unijete sva obavezna polja");
                     return;
                 }
 
                 if (!rbZensko.Checked && !rbMale.Checked)
                 {
                     labelError.Text = "Morate odabrati pol";
-                    //MessageBox.Show("Morate odabrati pol");
                     return;
                 }
 
                 if (selectedUser == null)
                 {
                     labelError.Text = "Morate odabrati korisnika";
-                    //MessageBox.Show("Morate odabrati korisnika");
                     return;
                 }
 
@@ -136,13 +128,11 @@ namespace eGym.UI.Desktop
 
                 dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
 
-                labelError.Text = "Uspjesno updatevon korisnik";
-                //MessageBox.Show("Uspjesno updatevon korisnik");
+                labelError.Text = "Uspjesno updatovan korisnik";
             }
             catch(Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 

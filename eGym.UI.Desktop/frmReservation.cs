@@ -23,19 +23,16 @@ namespace eGym.UI.Desktop
                 if (selectedReservation == null)
                 {
                     labelError.Text = "Morate odabrati rezervaciju";
-                   //MessageBox.Show("Morate odabrati rezervaciju");
                     return;
                 }
 
                 await _service.Put<ReservationDTO>(selectedReservation.ReservationId, "/confirm");
                 dgvReservations.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpDate.Value }, "/GetPendingReservation");
                 labelError.Text = "Reservacija potvrdjena";
-               //MessageBox.Show("Reservacija potvrdjena");
             }
             catch(Exception ex)
             {
                 labelError.Text = "Desila se greska";
-               //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -58,7 +55,6 @@ namespace eGym.UI.Desktop
             catch(Exception ex)
             {
                 labelError.Text = "Desila se greska";
-               //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -69,20 +65,17 @@ namespace eGym.UI.Desktop
                 if(selectedReservation == null)
                 {
                     labelError.Text = "Morate odabrati rezervaciju";
-                   //MessageBox.Show("Morate odabrati rezervaciju");
                     return;
                 }
 
                 await _service.Put<ReservationDTO>(selectedReservation.ReservationId, "/decline");
                 dgvReservations.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpDate.Value }, "/GetPendingReservation");
                 labelError.Text = "Reservacija odbijena";
-               //MessageBox.Show("Reservacija odbijena");
 
             }
             catch(Exception) 
             {
                 labelError.Text = "Desila se greska";
-               //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -100,7 +93,6 @@ namespace eGym.UI.Desktop
             catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
-               //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -122,7 +114,6 @@ namespace eGym.UI.Desktop
             catch(Exception ex )
             {
                 labelError.Text = "Desila se greska";
-               //MessageBox.Show("Desila se greska");
             }
         }
     }

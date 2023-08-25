@@ -55,7 +55,6 @@
             this.label1.Size = new System.Drawing.Size(43, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Datum";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // dtpSearchTime
             // 

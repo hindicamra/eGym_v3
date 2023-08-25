@@ -17,9 +17,6 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() {
-        //if (controller.fetchingData.value) {
-        //  return const Center(child: CircularProgressIndicator());
-        //}
         return AnimatedSwitcher(
           duration: const Duration(milliseconds: 600),
           transitionBuilder: (Widget child, Animation<double> animation) {

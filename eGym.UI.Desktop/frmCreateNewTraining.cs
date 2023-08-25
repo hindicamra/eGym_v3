@@ -1,6 +1,5 @@
 ﻿using eGym.BLL.Models;
 using eGym.BLL.Models.Requests;
-using System.ComponentModel;
 
 namespace eGym.UI.Desktop
 {
@@ -22,14 +21,12 @@ namespace eGym.UI.Desktop
                 if (!ValidateChildren(ValidationConstraints.Enabled))
                 {
                     labelError.Text = "Morate unijete opis treninga";
-                    //MessageBox.Show("Morate unijete opis treninga");
                     return;
                 }
 
                 if (cmbDay.SelectedIndex == -1)
                 {
                     labelError.Text = "Morate odabrati dan";
-                    //MessageBox.Show("Morate odabrati dan");
                     return;
                 }
 
@@ -43,34 +40,17 @@ namespace eGym.UI.Desktop
                 await _service.Post<TrainingDTO>(request);
 
                 labelError.Text = "Uspjesno kreiran";
-                //MessageBox.Show("Uspjesno kreiran");
                 this.Close();
             }
             catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 
         private void frmCreateNewTraining_Load(object sender, EventArgs e)
         {
             txtName.Text = selectedUser.FirstName + " " + selectedUser.LastName;
-        }
-
-        private void textBoxDescription_Validating(object sender, CancelEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(rtxtDescription.Text))
-            {
-                e.Cancel = true;
-                rtxtDescription.Focus();
-                errorProviderApp.SetError(rtxtDescription, "Morate unijeti username");
-            }
-            else
-            {
-                e.Cancel = false;
-                errorProviderApp.SetError(rtxtDescription, "");
-            }
         }
     }
 }

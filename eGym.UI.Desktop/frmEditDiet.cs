@@ -32,21 +32,18 @@ public partial class frmEditDiet : Form
             if (!ValidateChildren(ValidationConstraints.Enabled))
             {
                 labelError.Text = "Morate unijete opis obroka";
-                //MessageBox.Show("Morate unijete opis obroka");
                 return;
             }
 
             if (cmbDay.SelectedIndex == -1)
             {
                 labelError.Text = "Morate odabrati dan";
-                //MessageBox.Show("Morate odabrati dan");
                 return;
             }
 
             if (cmbMeal.SelectedIndex == -1)
             {
                 labelError.Text = "Morate odabrati obrok";
-                //MessageBox.Show("Morate odabrati obrok");
                 return;
             }
 
@@ -59,12 +56,10 @@ public partial class frmEditDiet : Form
 
             await _service.Put<DietDTO>(diet.DietId, request);
             labelError.Text = "Uspjesno updatovan";
-            //MessageBox.Show("Uspjesno updatovan");
         }
         catch (Exception ex)
         {
             labelError.Text = "Desila se greska";
-            //MessageBox.Show("Desila se greska");
         }
     }
 
@@ -79,12 +74,10 @@ public partial class frmEditDiet : Form
             rtxtDescription.Text = "";
 
             labelError.Text = "Uspjesno obrisan unos";
-            //MessageBox.Show("Uspjesno obrisan unos");
         }
         catch (Exception ex)
         {
             labelError.Text = "Desila se greska";
-            //MessageBox.Show("Desila se greska");
         }
     }
 

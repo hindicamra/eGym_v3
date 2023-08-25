@@ -25,7 +25,6 @@ namespace eGym.UI.Desktop
             catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -39,7 +38,6 @@ namespace eGym.UI.Desktop
             catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -57,7 +55,6 @@ namespace eGym.UI.Desktop
             catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
-                //MessageBox.Show("Desila se greska");
             }
         }
 
@@ -66,7 +63,6 @@ namespace eGym.UI.Desktop
             if(selectedUser == null)
             {
                 labelError.Text = "Morate odabrati korisnika";
-                //MessageBox.Show("Morate odabrati korisnika");
                 return;
             }
             frmCreateNewTraining frm = new frmCreateNewTraining(selectedUser);

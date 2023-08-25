@@ -31,14 +31,12 @@ public partial class frmEditTraining : Form
             if (!ValidateChildren(ValidationConstraints.Enabled))
             {
                 labelError.Text = "Morate unijete opis treninga";
-                //MessageBox.Show("Morate unijete opis treninga");
                 return;
             }
 
             if (cmbDay.SelectedIndex == -1)
             {
                 labelError.Text = "Morate odabrati dan";
-                //MessageBox.Show("Morate odabrati dan");
                 return;
             }
 
@@ -50,12 +48,10 @@ public partial class frmEditTraining : Form
 
             await _service.Put<TrainingDTO>(training.TrainingId, request);
             labelError.Text = "Uspjesno updatovan";
-            //MessageBox.Show("Uspjesno updatovan");
         }
         catch (Exception ex)
         {
             labelError.Text = "Desila se greska";
-            //MessageBox.Show("Desila se greska");
         }
     }
 
@@ -70,12 +66,10 @@ public partial class frmEditTraining : Form
             rtxtDescription.Text = "";
 
             labelError.Text = "Uspjesno obrisan unos";
-            //MessageBox.Show("Uspjesno obrisan unos");
         }
         catch (Exception ex)
         {
             labelError.Text = "Desila se greska";
-            //MessageBox.Show("Desila se greska");
         }
     }
 
