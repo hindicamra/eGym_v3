@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -47,9 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelError = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // txtEmail
@@ -59,7 +56,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(219, 23);
             this.txtEmail.TabIndex = 37;
-            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxEmail_Validating);
             // 
             // label9
             // 
@@ -109,7 +105,6 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(219, 23);
             this.txtPassword.TabIndex = 31;
-            this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPassword_Validating);
             // 
             // txtUsername
             // 
@@ -118,7 +113,6 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(219, 23);
             this.txtUsername.TabIndex = 30;
-            this.txtUsername.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxUserName_Validating);
             // 
             // txtLastName
             // 
@@ -127,7 +121,6 @@
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(219, 23);
             this.txtLastName.TabIndex = 29;
-            this.txtLastName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxLastName_Validating);
             // 
             // txtName
             // 
@@ -136,7 +129,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(219, 23);
             this.txtName.TabIndex = 28;
-            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxName_Validating);
             // 
             // btnCreate
             // 
@@ -217,10 +209,6 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Kreiraj korisnika";
             // 
-            // errorProviderApp
-            // 
-            this.errorProviderApp.ContainerControl = this;
-            // 
             // labelError
             // 
             this.labelError.AutoSize = true;
@@ -257,7 +245,6 @@
             this.MaximizeBox = false;
             this.Name = "frmCreateAccount";
             this.Text = "Kreiranje korisnika";
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,7 +270,6 @@
         private Label label3;
         private Label label2;
         private Label label1;
-        private ErrorProvider errorProviderApp;
         private Label labelError;
     }
 }

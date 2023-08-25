@@ -9,6 +9,7 @@ public partial class frmEditTraining : Form
     private readonly APIService _service = new APIService("Training");
     private readonly TrainingDTO training;
     private readonly string name;
+    bool ValidationInput1 = false, ValidationInput2 = false;
 
     public frmEditTraining(TrainingDTO training, string clientName)
     {
@@ -28,26 +29,45 @@ public partial class frmEditTraining : Form
     {
         try
         {
-            if (!ValidateChildren(ValidationConstraints.Enabled))
+            if (cmbDay.SelectedIndex != -1)
             {
-                labelError.Text = "Morate unijete opis treninga";
-                return;
+                cmbDay.BackColor = SystemColors.Window;
+                cmbDay.ForeColor = SystemColors.WindowText;
+                ValidationInput1 = false;
+            }
+            else
+            {
+                cmbDay.BackColor = Color.LightPink;
+                cmbDay.ForeColor = Color.Red;
+                ValidationInput1 = true;
             }
 
-            if (cmbDay.SelectedIndex == -1)
+            if (rtxtDescription.Text != "")
             {
-                labelError.Text = "Morate odabrati dan";
-                return;
+                rtxtDescription.BackColor = SystemColors.Window;
+                rtxtDescription.ForeColor = SystemColors.WindowText;
+                rtxtDescription.BorderStyle = BorderStyle.FixedSingle;
+                ValidationInput2 = false;
+            }
+            else
+            {
+                rtxtDescription.BackColor = Color.LightPink;
+                rtxtDescription.ForeColor = Color.Red;
+                rtxtDescription.BorderStyle = BorderStyle.Fixed3D;
+                ValidationInput2 = true;
             }
 
-            var request = new UpdateTrainingRequest()
+            if (!ValidationInput1 && !ValidationInput2)
             {
-                Day = (DayOfWeek)cmbDay.SelectedIndex,
-                Description = rtxtDescription.Text
-            };
+                var request = new UpdateTrainingRequest()
+                {
+                    Day = (DayOfWeek)cmbDay.SelectedIndex,
+                    Description = rtxtDescription.Text
+                };
 
-            await _service.Put<TrainingDTO>(training.TrainingId, request);
-            labelError.Text = "Uspjesno updatovan";
+                await _service.Put<TrainingDTO>(training.TrainingId, request);
+                labelError.Text = "Uspjesno updatovan";
+            }     
         }
         catch (Exception ex)
         {
@@ -70,21 +90,6 @@ public partial class frmEditTraining : Form
         catch (Exception ex)
         {
             labelError.Text = "Desila se greska";
-        }
-    }
-
-    private void textBoxDescription_Validating(object sender, CancelEventArgs e)
-    {
-        if (string.IsNullOrWhiteSpace(rtxtDescription.Text))
-        {
-            e.Cancel = true;
-            rtxtDescription.Focus();
-            errorProviderApp.SetError(rtxtDescription, "Morate unijeti username");
-        }
-        else
-        {
-            e.Cancel = false;
-            errorProviderApp.SetError(rtxtDescription, "");
         }
     }
 }

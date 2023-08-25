@@ -47,18 +47,6 @@ namespace eGym.UI.Desktop
 
             try
             {
-                //if (!ValidateChildren(ValidationConstraints.Enabled))
-                //{
-                //    labelError.Text = "Morate unijete opis treninga";
-                //    return;
-                //}
-
-                //if (cmbDay.SelectedIndex == -1)
-                //{
-                //    labelError.Text = "Morate odabrati dan";
-                //    return;
-                //}
-
                 if (!ValidationInput1 && !ValidationInput2)
                 {
                     var request = new CreateTrainingRequest()

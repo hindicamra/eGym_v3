@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.cmbDay = new System.Windows.Forms.ComboBox();
             this.rtxtDescription = new System.Windows.Forms.RichTextBox();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -37,9 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
-            this.errorProviderApp = new System.Windows.Forms.ErrorProvider(this.components);
             this.labelError = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).BeginInit();
             this.SuspendLayout();
             // 
             // cmbDay
@@ -124,10 +121,6 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // errorProviderApp
-            // 
-            this.errorProviderApp.ContainerControl = this;
-            // 
             // labelError
             // 
             this.labelError.AutoSize = true;
@@ -156,7 +149,6 @@
             this.Name = "frmCreateNewTraining";
             this.Text = "Kreiraj novi unos";
             this.Load += new System.EventHandler(this.frmCreateNewTraining_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProviderApp)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,7 +164,6 @@
         private Label label3;
         private Label label2;
         private Button btnSave;
-        private ErrorProvider errorProviderApp;
         private Label labelError;
     }
 }
