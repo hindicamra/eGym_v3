@@ -7,7 +7,7 @@ namespace eGym.UI.Desktop
     public partial class frmCreateEmployee : Form
     {
         private readonly APIService _service = new APIService("Employee");
-        bool ValidationInput1 = false, ValidationInput2 = false, ValidationInput3 = false, ValidationInput4 = false, ValidationInput5 = false, ValidationInput6 = false, ValidationInput7 = false, ValidationInput8 = false;
+        bool ValidationInput1 = false, ValidationInput2 = false, ValidationInput3 = false, ValidationInput4 = false, ValidationInput5 = false, ValidationInput6 = false, ValidationInput7 = false;
 
         public frmCreateEmployee()
         {
@@ -64,7 +64,7 @@ namespace eGym.UI.Desktop
                     rbMale.ForeColor = SystemColors.WindowText;
                     ValidationInput3 = true;
                 }
-                if (txtPassword.Text != "")
+                if (txtPassword.Text != "" || txtPassword.Text.Length>=3)
                 {
                     txtPassword.BackColor = SystemColors.Window;
                     txtPassword.ForeColor = SystemColors.WindowText;
@@ -106,35 +106,21 @@ namespace eGym.UI.Desktop
                     txtUsername.BorderStyle = BorderStyle.Fixed3D;
                     ValidationInput6 = true;
                 }
-                if (txtPassword.Text != "")
-                {
-                    txtPassword.BackColor = SystemColors.Window;
-                    txtPassword.ForeColor = SystemColors.WindowText;
-                    txtPassword.BorderStyle = BorderStyle.FixedSingle;
-                    ValidationInput7 = false;
-                }
-                else
-                {
-                    txtPassword.BackColor = Color.LightPink;
-                    txtPassword.ForeColor = Color.Red;
-                    txtPassword.BorderStyle = BorderStyle.Fixed3D;
-                    ValidationInput7 = true;
-                }
                 if (cbRole.SelectedIndex != -1)
                 {
                     cbRole.BackColor = SystemColors.Window;
                     cbRole.ForeColor = SystemColors.WindowText;
-                    ValidationInput8 = false;
+                    ValidationInput7 = false;
                 }
                 else
                 {
                     cbRole.BackColor = Color.LightPink;
                     cbRole.ForeColor = Color.Red;
-                    ValidationInput8 = true;
+                    ValidationInput7 = true;
                 }
 
 
-                if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3 && !ValidationInput4 && !ValidationInput5 && !ValidationInput6 && !ValidationInput7 && !ValidationInput8)
+                if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3 && !ValidationInput4 && !ValidationInput5 && !ValidationInput6 && !ValidationInput7)
                 {
                     var request = new CreateEmployeeRequest
                     {
@@ -149,11 +135,11 @@ namespace eGym.UI.Desktop
 
                     if (rbFemale.Checked)
                     {
-                        request.Gender = BLL.Models.Enums.Gender.Female;
+                        request.Gender = (BLL.Models.Enums.Gender)1;
                     }
                     else
                     {
-                        request.Gender = BLL.Models.Enums.Gender.Male;
+                        request.Gender = (BLL.Models.Enums.Gender)0;
                     }
 
                     await _service.Post<EmployeeDTO>(request);

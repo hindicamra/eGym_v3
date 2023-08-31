@@ -65,7 +65,7 @@ namespace eGym.UI.Desktop
                     rbMale.ForeColor = SystemColors.WindowText;
                     ValidationInput3 = true;
                 }
-                if (txtPassword.Text != "")
+                if (txtPassword.Text != "" || txtPassword.Text.Length>2)
                 {
                     txtPassword.BackColor = SystemColors.Window;
                     txtPassword.ForeColor = SystemColors.WindowText;
@@ -107,22 +107,8 @@ namespace eGym.UI.Desktop
                     txtUsername.BorderStyle = BorderStyle.Fixed3D;
                     ValidationInput6 = true;
                 }
-                if (txtPassword.Text != "")
-                {
-                    txtPassword.BackColor = SystemColors.Window;
-                    txtPassword.ForeColor = SystemColors.WindowText;
-                    txtPassword.BorderStyle = BorderStyle.FixedSingle;
-                    ValidationInput7 = false;
-                }
-                else
-                {
-                    txtPassword.BackColor = Color.LightPink;
-                    txtPassword.ForeColor = Color.Red;
-                    txtPassword.BorderStyle = BorderStyle.Fixed3D;
-                    ValidationInput7 = true;
-                }
 
-                if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3 && !ValidationInput4 && !ValidationInput5 && !ValidationInput6 && !ValidationInput7)
+                if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3 && !ValidationInput4 && !ValidationInput5 && !ValidationInput6)
                 {
                     var request = new CreateAccountRequest
                     {
