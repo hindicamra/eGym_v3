@@ -60,7 +60,7 @@ namespace eGym.UI.Desktop
 
         private void btnCreateNewTraining_Click(object sender, EventArgs e)
         {
-            if(selectedUser == null)
+            if (selectedUser == null)
             {
                 labelError.Text = "Morate odabrati korisnika";
                 return;

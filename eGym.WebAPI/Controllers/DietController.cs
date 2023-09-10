@@ -46,7 +46,7 @@ public class DietController : ControllerBase
 
     [HttpGet]
     [Route("getByUserId")]
-    [Authorize(Roles = "Employee,User")]
+    //[Authorize(Roles = "Employee,User")]
     public async Task<IActionResult> GetByUserId(int userId)
     {
         try
