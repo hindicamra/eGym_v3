@@ -1,6 +1,5 @@
 ﻿using eGym.BLL.Models;
 using eGym.BLL.Models.Requests;
-using System.ComponentModel;
 
 namespace eGym.UI.Desktop
 {
@@ -64,7 +63,7 @@ namespace eGym.UI.Desktop
                     rbMale.ForeColor = SystemColors.WindowText;
                     ValidationInput3 = true;
                 }
-                if (txtPassword.Text != "" || txtPassword.Text.Length>=3)
+                if (txtPassword.Text != "" || txtPassword.Text.Length >= 3)
                 {
                     txtPassword.BackColor = SystemColors.Window;
                     txtPassword.ForeColor = SystemColors.WindowText;
@@ -145,9 +144,9 @@ namespace eGym.UI.Desktop
                     await _service.Post<EmployeeDTO>(request);
                     labelError.Text = "Uspjesno kreiran uposlenik";
                     this.Close();
-                } 
+                }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }

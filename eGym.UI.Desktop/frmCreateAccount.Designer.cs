@@ -28,226 +28,233 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.rbFemale = new System.Windows.Forms.RadioButton();
-            this.rbMale = new System.Windows.Forms.RadioButton();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelError = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            txtEmail = new TextBox();
+            label9 = new Label();
+            dateTimePicker1 = new DateTimePicker();
+            rbFemale = new RadioButton();
+            rbMale = new RadioButton();
+            txtPassword = new TextBox();
+            txtUsername = new TextBox();
+            txtLastName = new TextBox();
+            txtName = new TextBox();
+            btnCreate = new Button();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            labelError = new Label();
+            err = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)err).BeginInit();
+            SuspendLayout();
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(170, 210);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(219, 23);
-            this.txtEmail.TabIndex = 37;
+            txtEmail.Location = new Point(170, 210);
+            txtEmail.Margin = new Padding(3, 2, 3, 2);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(219, 23);
+            txtEmail.TabIndex = 37;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(48, 215);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 15);
-            this.label9.TabIndex = 36;
-            this.label9.Text = "Email";
+            label9.AutoSize = true;
+            label9.Location = new Point(48, 215);
+            label9.Name = "label9";
+            label9.Size = new Size(36, 15);
+            label9.TabIndex = 36;
+            label9.Text = "Email";
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(170, 179);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(219, 23);
-            this.dateTimePicker1.TabIndex = 34;
+            dateTimePicker1.Location = new Point(170, 179);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(219, 23);
+            dateTimePicker1.TabIndex = 34;
             // 
             // rbFemale
             // 
-            this.rbFemale.AutoSize = true;
-            this.rbFemale.Location = new System.Drawing.Point(321, 152);
-            this.rbFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(63, 19);
-            this.rbFemale.TabIndex = 33;
-            this.rbFemale.TabStop = true;
-            this.rbFemale.Text = "Zensko";
-            this.rbFemale.UseVisualStyleBackColor = true;
+            rbFemale.AutoSize = true;
+            rbFemale.Location = new Point(321, 152);
+            rbFemale.Margin = new Padding(3, 2, 3, 2);
+            rbFemale.Name = "rbFemale";
+            rbFemale.Size = new Size(63, 19);
+            rbFemale.TabIndex = 33;
+            rbFemale.TabStop = true;
+            rbFemale.Text = "Zensko";
+            rbFemale.UseVisualStyleBackColor = true;
             // 
             // rbMale
             // 
-            this.rbMale.AutoSize = true;
-            this.rbMale.Location = new System.Drawing.Point(170, 152);
-            this.rbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(61, 19);
-            this.rbMale.TabIndex = 32;
-            this.rbMale.TabStop = true;
-            this.rbMale.Text = "Musko";
-            this.rbMale.UseVisualStyleBackColor = true;
+            rbMale.AutoSize = true;
+            rbMale.Location = new Point(170, 152);
+            rbMale.Margin = new Padding(3, 2, 3, 2);
+            rbMale.Name = "rbMale";
+            rbMale.Size = new Size(61, 19);
+            rbMale.TabIndex = 32;
+            rbMale.TabStop = true;
+            rbMale.Text = "Musko";
+            rbMale.UseVisualStyleBackColor = true;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(170, 284);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(219, 23);
-            this.txtPassword.TabIndex = 31;
+            txtPassword.Location = new Point(170, 284);
+            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(219, 23);
+            txtPassword.TabIndex = 31;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(170, 244);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(219, 23);
-            this.txtUsername.TabIndex = 30;
+            txtUsername.Location = new Point(170, 244);
+            txtUsername.Margin = new Padding(3, 2, 3, 2);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(219, 23);
+            txtUsername.TabIndex = 30;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(170, 111);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(219, 23);
-            this.txtLastName.TabIndex = 29;
+            txtLastName.Location = new Point(170, 111);
+            txtLastName.Margin = new Padding(3, 2, 3, 2);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(219, 23);
+            txtLastName.TabIndex = 29;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(170, 74);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(219, 23);
-            this.txtName.TabIndex = 28;
+            txtName.Location = new Point(170, 74);
+            txtName.Margin = new Padding(3, 2, 3, 2);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(219, 23);
+            txtName.TabIndex = 28;
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(192, 356);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(98, 32);
-            this.btnCreate.TabIndex = 27;
-            this.btnCreate.Text = "Kreiraj";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            btnCreate.Location = new Point(192, 356);
+            btnCreate.Margin = new Padding(3, 2, 3, 2);
+            btnCreate.Name = "btnCreate";
+            btnCreate.Size = new Size(98, 32);
+            btnCreate.TabIndex = 27;
+            btnCreate.Text = "Kreiraj";
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(48, 290);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 15);
-            this.label7.TabIndex = 25;
-            this.label7.Text = "Lozinka";
+            label7.AutoSize = true;
+            label7.Location = new Point(48, 290);
+            label7.Name = "label7";
+            label7.Size = new Size(47, 15);
+            label7.TabIndex = 25;
+            label7.Text = "Lozinka";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 250);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 15);
-            this.label6.TabIndex = 24;
-            this.label6.Text = "Username";
+            label6.AutoSize = true;
+            label6.Location = new Point(48, 250);
+            label6.Name = "label6";
+            label6.Size = new Size(60, 15);
+            label6.TabIndex = 24;
+            label6.Text = "Username";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(48, 184);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 15);
-            this.label5.TabIndex = 23;
-            this.label5.Text = "Datum rodjenja";
+            label5.AutoSize = true;
+            label5.Location = new Point(48, 184);
+            label5.Name = "label5";
+            label5.Size = new Size(89, 15);
+            label5.TabIndex = 23;
+            label5.Text = "Datum rodjenja";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 145);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 15);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Spol";
+            label4.AutoSize = true;
+            label4.Location = new Point(48, 145);
+            label4.Name = "label4";
+            label4.Size = new Size(30, 15);
+            label4.TabIndex = 22;
+            label4.Text = "Spol";
             // 
             // sqlCommand1
             // 
-            this.sqlCommand1.CommandTimeout = 30;
-            this.sqlCommand1.EnableOptimizedParameterBinding = false;
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 111);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 15);
-            this.label3.TabIndex = 21;
-            this.label3.Text = "Prezime";
+            label3.AutoSize = true;
+            label3.Location = new Point(48, 111);
+            label3.Name = "label3";
+            label3.Size = new Size(49, 15);
+            label3.TabIndex = 21;
+            label3.Text = "Prezime";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 76);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 15);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Ime";
+            label2.AutoSize = true;
+            label2.Location = new Point(48, 76);
+            label2.Name = "label2";
+            label2.Size = new Size(27, 15);
+            label2.TabIndex = 20;
+            label2.Text = "Ime";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(178, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 15);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "Kreiraj korisnika";
+            label1.AutoSize = true;
+            label1.Location = new Point(178, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(90, 15);
+            label1.TabIndex = 19;
+            label1.Text = "Kreiraj korisnika";
             // 
             // labelError
             // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(12, 393);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 15);
-            this.labelError.TabIndex = 38;
+            labelError.AutoSize = true;
+            labelError.Location = new Point(12, 393);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(0, 15);
+            labelError.TabIndex = 38;
+            // 
+            // err
+            // 
+            err.ContainerControl = this;
             // 
             // frmCreateAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(465, 417);
-            this.Controls.Add(this.labelError);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.rbFemale);
-            this.Controls.Add(this.rbMale);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
-            this.Name = "frmCreateAccount";
-            this.Text = "Kreiranje korisnika";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Aqua;
+            ClientSize = new Size(465, 417);
+            Controls.Add(labelError);
+            Controls.Add(txtEmail);
+            Controls.Add(label9);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(rbFemale);
+            Controls.Add(rbMale);
+            Controls.Add(txtPassword);
+            Controls.Add(txtUsername);
+            Controls.Add(txtLastName);
+            Controls.Add(txtName);
+            Controls.Add(btnCreate);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            Name = "frmCreateAccount";
+            Text = "Kreiranje korisnika";
+            ((System.ComponentModel.ISupportInitialize)err).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -271,5 +278,6 @@
         private Label label2;
         private Label label1;
         private Label labelError;
+        private ErrorProvider err;
     }
 }

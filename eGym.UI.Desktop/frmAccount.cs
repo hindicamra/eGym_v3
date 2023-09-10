@@ -1,6 +1,5 @@
 ﻿using eGym.BLL.Models;
 using eGym.BLL.Models.Requests;
-using System.ComponentModel;
 
 namespace eGym.UI.Desktop
 {
@@ -16,6 +15,7 @@ namespace eGym.UI.Desktop
         public frmAccount()
         {
             InitializeComponent();
+            dgvAccount.AutoGenerateColumns = false; 
         }
 
         private async void frmAccount_Load(object sender, EventArgs e)
@@ -23,9 +23,8 @@ namespace eGym.UI.Desktop
             try
             {
                 dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
-                dgvAccount.Columns["AccountId"].Visible = false;
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }
@@ -37,9 +36,16 @@ namespace eGym.UI.Desktop
         {
             try
             {
-                dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(new { text = txtSearch.Text }, "/search");
+                if (txtSearch.Text == "")
+                {
+                    dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
+                }
+                else
+                {
+                    dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(new { text = txtSearch.Text }, "/search");
+                }
             }
-            catch(Exception ex) 
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }
@@ -49,7 +55,7 @@ namespace eGym.UI.Desktop
         private void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            selectedUser = dgvAccount.Rows[index].DataBoundItem as AccountDTO;
+            selectedUser = (AccountDTO)dgvAccount.Rows[index].DataBoundItem;
 
             txtId.Text = selectedUser.AccountId.ToString();
             txtName.Text = selectedUser.FirstName;
@@ -67,7 +73,7 @@ namespace eGym.UI.Desktop
                 rbMale.Checked = true;
             }
 
-            if (selectedUser!=null)
+            if (selectedUser != null)
             {
                 btnSave.Enabled = btnDelete.Enabled = true;
             }
@@ -103,22 +109,18 @@ namespace eGym.UI.Desktop
                 labelError.Text = "Uspjesno obrisan korisnik";
                 btnSave.Enabled = btnDelete.Enabled = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }
         }
 
-        private void txtId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+    
         private async void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtName.Text!="")
+                if (txtName.Text != "")
                 {
                     txtName.BackColor = SystemColors.Window;
                     txtName.ForeColor = SystemColors.WindowText;
@@ -193,7 +195,7 @@ namespace eGym.UI.Desktop
                     ValidationInput5 = true;
                 }
 
-                if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3 && !ValidationInput4 && !ValidationInput5 && selectedUser!=null)
+                if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3 && !ValidationInput4 && !ValidationInput5 && selectedUser != null)
                 {
                     var request = new UpdateAccountRequest()
                     {
@@ -201,7 +203,6 @@ namespace eGym.UI.Desktop
                         LastName = txtLastName.Text,
                         BirthDate = dateTimePicker1.Value,
                         Username = txtUsername.Text,
-                        Password = txtPassword.Text
                     };
 
                     await _service.Put<AccountDTO>(selectedUser.AccountId, request);
@@ -213,7 +214,7 @@ namespace eGym.UI.Desktop
                     btnSave.Enabled = btnDelete.Enabled = false;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }
