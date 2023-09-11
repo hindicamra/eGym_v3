@@ -28,251 +28,263 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnCreate = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.rbMale = new System.Windows.Forms.RadioButton();
-            this.rbFemale = new System.Windows.Forms.RadioButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.cbRole = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.labelError = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            sqlCommand1 = new Microsoft.Data.SqlClient.SqlCommand();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            btnCreate = new Button();
+            txtName = new TextBox();
+            txtLastName = new TextBox();
+            txtUsername = new TextBox();
+            txtPassword = new TextBox();
+            rbMale = new RadioButton();
+            rbFemale = new RadioButton();
+            dateTimePicker1 = new DateTimePicker();
+            cbRole = new ComboBox();
+            label9 = new Label();
+            txtEmail = new TextBox();
+            labelError = new Label();
+            err = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)err).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(158, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Kreiraj uposlenika";
+            label1.AutoSize = true;
+            label1.Location = new Point(158, 22);
+            label1.Name = "label1";
+            label1.Size = new Size(100, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Kreiraj uposlenika";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Ime";
+            label2.AutoSize = true;
+            label2.Location = new Point(28, 69);
+            label2.Name = "label2";
+            label2.Size = new Size(27, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Ime";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(28, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 15);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Prezime";
+            label3.AutoSize = true;
+            label3.Location = new Point(28, 104);
+            label3.Name = "label3";
+            label3.Size = new Size(49, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Prezime";
             // 
             // sqlCommand1
             // 
-            this.sqlCommand1.CommandTimeout = 30;
-            this.sqlCommand1.EnableOptimizedParameterBinding = false;
+            sqlCommand1.CommandTimeout = 30;
+            sqlCommand1.EnableOptimizedParameterBinding = false;
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(28, 137);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 15);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Spol";
+            label4.AutoSize = true;
+            label4.Location = new Point(28, 137);
+            label4.Name = "label4";
+            label4.Size = new Size(30, 15);
+            label4.TabIndex = 3;
+            label4.Text = "Spol";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 177);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 15);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Datum rodjenja";
+            label5.AutoSize = true;
+            label5.Location = new Point(28, 177);
+            label5.Name = "label5";
+            label5.Size = new Size(89, 15);
+            label5.TabIndex = 4;
+            label5.Text = "Datum rodjenja";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 242);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 15);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Username";
+            label6.AutoSize = true;
+            label6.Location = new Point(28, 242);
+            label6.Name = "label6";
+            label6.Size = new Size(60, 15);
+            label6.TabIndex = 5;
+            label6.Text = "Username";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(28, 282);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 15);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Lozinka";
+            label7.AutoSize = true;
+            label7.Location = new Point(28, 282);
+            label7.Name = "label7";
+            label7.Size = new Size(47, 15);
+            label7.TabIndex = 6;
+            label7.Text = "Lozinka";
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(28, 322);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(30, 15);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Rola";
+            label8.AutoSize = true;
+            label8.Location = new Point(28, 322);
+            label8.Name = "label8";
+            label8.Size = new Size(30, 15);
+            label8.TabIndex = 7;
+            label8.Text = "Rola";
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(172, 349);
-            this.btnCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(98, 32);
-            this.btnCreate.TabIndex = 8;
-            this.btnCreate.Text = "Kreiraj";
-            this.btnCreate.UseVisualStyleBackColor = true;
-            this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
+            btnCreate.Location = new Point(172, 349);
+            btnCreate.Margin = new Padding(3, 2, 3, 2);
+            btnCreate.Name = "btnCreate";
+            btnCreate.Size = new Size(98, 32);
+            btnCreate.TabIndex = 8;
+            btnCreate.Text = "Kreiraj";
+            btnCreate.UseVisualStyleBackColor = true;
+            btnCreate.Click += btnCreate_Click;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(150, 67);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(219, 23);
-            this.txtName.TabIndex = 9;
+            txtName.Location = new Point(150, 67);
+            txtName.Margin = new Padding(3, 2, 3, 2);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(219, 23);
+            txtName.TabIndex = 9;
+            txtName.Validating += txtName_Validating;
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(150, 104);
-            this.txtLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(219, 23);
-            this.txtLastName.TabIndex = 10;
+            txtLastName.Location = new Point(150, 104);
+            txtLastName.Margin = new Padding(3, 2, 3, 2);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(219, 23);
+            txtLastName.TabIndex = 10;
+            txtLastName.Validating += txtLastName_Validating;
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(150, 237);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(219, 23);
-            this.txtUsername.TabIndex = 11;
+            txtUsername.Location = new Point(150, 237);
+            txtUsername.Margin = new Padding(3, 2, 3, 2);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(219, 23);
+            txtUsername.TabIndex = 11;
+            txtUsername.Validating += txtUsername_Validating;
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(150, 277);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(219, 23);
-            this.txtPassword.TabIndex = 12;
+            txtPassword.Location = new Point(150, 277);
+            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.Name = "txtPassword";
+            txtPassword.Size = new Size(219, 23);
+            txtPassword.TabIndex = 12;
+            txtPassword.Validating += txtPassword_Validating;
             // 
             // rbMale
             // 
-            this.rbMale.AutoSize = true;
-            this.rbMale.Location = new System.Drawing.Point(150, 144);
-            this.rbMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(61, 19);
-            this.rbMale.TabIndex = 13;
-            this.rbMale.TabStop = true;
-            this.rbMale.Text = "Musko";
-            this.rbMale.UseVisualStyleBackColor = true;
+            rbMale.AutoSize = true;
+            rbMale.Location = new Point(150, 144);
+            rbMale.Margin = new Padding(3, 2, 3, 2);
+            rbMale.Name = "rbMale";
+            rbMale.Size = new Size(61, 19);
+            rbMale.TabIndex = 13;
+            rbMale.TabStop = true;
+            rbMale.Text = "Musko";
+            rbMale.UseVisualStyleBackColor = true;
             // 
             // rbFemale
             // 
-            this.rbFemale.AutoSize = true;
-            this.rbFemale.Location = new System.Drawing.Point(301, 144);
-            this.rbFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(63, 19);
-            this.rbFemale.TabIndex = 14;
-            this.rbFemale.TabStop = true;
-            this.rbFemale.Text = "Zensko";
-            this.rbFemale.UseVisualStyleBackColor = true;
+            rbFemale.AutoSize = true;
+            rbFemale.Location = new Point(301, 144);
+            rbFemale.Margin = new Padding(3, 2, 3, 2);
+            rbFemale.Name = "rbFemale";
+            rbFemale.Size = new Size(63, 19);
+            rbFemale.TabIndex = 14;
+            rbFemale.TabStop = true;
+            rbFemale.Text = "Zensko";
+            rbFemale.UseVisualStyleBackColor = true;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(150, 172);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(219, 23);
-            this.dateTimePicker1.TabIndex = 15;
+            dateTimePicker1.Location = new Point(150, 172);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(219, 23);
+            dateTimePicker1.TabIndex = 15;
             // 
             // cbRole
             // 
-            this.cbRole.FormattingEnabled = true;
-            this.cbRole.Items.AddRange(new object[] {
-            "Admin",
-            "Employee"});
-            this.cbRole.Location = new System.Drawing.Point(150, 316);
-            this.cbRole.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cbRole.Name = "cbRole";
-            this.cbRole.Size = new System.Drawing.Size(219, 23);
-            this.cbRole.TabIndex = 16;
+            cbRole.FormattingEnabled = true;
+            cbRole.Items.AddRange(new object[] { "Admin", "Employee" });
+            cbRole.Location = new Point(150, 316);
+            cbRole.Margin = new Padding(3, 2, 3, 2);
+            cbRole.Name = "cbRole";
+            cbRole.Size = new Size(219, 23);
+            cbRole.TabIndex = 16;
+            cbRole.Validating += cbRole_Validating;
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 208);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(36, 15);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Email";
+            label9.AutoSize = true;
+            label9.Location = new Point(28, 208);
+            label9.Name = "label9";
+            label9.Size = new Size(36, 15);
+            label9.TabIndex = 17;
+            label9.Text = "Email";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(150, 202);
-            this.txtEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(219, 23);
-            this.txtEmail.TabIndex = 18;
+            txtEmail.Location = new Point(150, 202);
+            txtEmail.Margin = new Padding(3, 2, 3, 2);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(219, 23);
+            txtEmail.TabIndex = 18;
+            txtEmail.Validating += txtEmail_Validating;
             // 
             // labelError
             // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(28, 392);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 15);
-            this.labelError.TabIndex = 19;
+            labelError.AutoSize = true;
+            labelError.Location = new Point(28, 392);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(0, 15);
+            labelError.TabIndex = 19;
+            // 
+            // err
+            // 
+            err.ContainerControl = this;
             // 
             // frmCreateEmployee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(437, 416);
-            this.Controls.Add(this.labelError);
-            this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.cbRole);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.rbFemale);
-            this.Controls.Add(this.rbMale);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.btnCreate);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
-            this.Name = "frmCreateEmployee";
-            this.Text = "Create Employee";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.Disable;
+            BackColor = Color.Aqua;
+            ClientSize = new Size(437, 416);
+            Controls.Add(labelError);
+            Controls.Add(txtEmail);
+            Controls.Add(label9);
+            Controls.Add(cbRole);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(rbFemale);
+            Controls.Add(rbMale);
+            Controls.Add(txtPassword);
+            Controls.Add(txtUsername);
+            Controls.Add(txtLastName);
+            Controls.Add(txtName);
+            Controls.Add(btnCreate);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            Name = "frmCreateEmployee";
+            Text = "Create Employee";
+            ((System.ComponentModel.ISupportInitialize)err).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -298,5 +310,6 @@
         private Label label9;
         private TextBox txtEmail;
         private Label labelError;
+        private ErrorProvider err;
     }
 }

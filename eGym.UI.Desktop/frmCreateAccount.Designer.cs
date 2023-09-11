@@ -59,6 +59,7 @@
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(219, 23);
             txtEmail.TabIndex = 37;
+            txtEmail.Validating += txtEmail_Validating;
             // 
             // label9
             // 
@@ -85,13 +86,13 @@
             rbFemale.Name = "rbFemale";
             rbFemale.Size = new Size(63, 19);
             rbFemale.TabIndex = 33;
-            rbFemale.TabStop = true;
             rbFemale.Text = "Zensko";
             rbFemale.UseVisualStyleBackColor = true;
             // 
             // rbMale
             // 
             rbMale.AutoSize = true;
+            rbMale.Checked = true;
             rbMale.Location = new Point(170, 152);
             rbMale.Margin = new Padding(3, 2, 3, 2);
             rbMale.Name = "rbMale";
@@ -108,6 +109,7 @@
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(219, 23);
             txtPassword.TabIndex = 31;
+            txtPassword.Validating += txtPassword_Validating;
             // 
             // txtUsername
             // 
@@ -116,6 +118,7 @@
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(219, 23);
             txtUsername.TabIndex = 30;
+            txtUsername.Validating += txtUsername_Validating;
             // 
             // txtLastName
             // 
@@ -124,6 +127,7 @@
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(219, 23);
             txtLastName.TabIndex = 29;
+            txtLastName.Validating += txtLastName_Validating;
             // 
             // txtName
             // 
@@ -132,6 +136,7 @@
             txtName.Name = "txtName";
             txtName.Size = new Size(219, 23);
             txtName.TabIndex = 28;
+            txtName.Validating += txtName_Validating;
             // 
             // btnCreate
             // 
@@ -228,6 +233,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.Disable;
             BackColor = Color.Aqua;
             ClientSize = new Size(465, 417);
             Controls.Add(labelError);

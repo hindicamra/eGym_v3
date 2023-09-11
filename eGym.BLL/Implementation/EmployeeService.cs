@@ -12,15 +12,15 @@ public class EmployeeService : IEmployeeService
     private readonly IMapper _mapper;
 
     public EmployeeService(IUnitOfWork unitOfWork, IMapper mapper)
-	{
+    {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
-	}
+    }
 
-	public async Task Create(CreateEmployeeRequest request)
-	{
+    public async Task Create(CreateEmployeeRequest request)
+    {
         await _unitOfWork.Employees.Insert(_mapper.Map<Employee>(request));
-	}
+    }
 
     public async Task Delete(int id)
     {
@@ -64,7 +64,7 @@ public class EmployeeService : IEmployeeService
 
         var response = new List<EmployeeActivity>();
 
-        foreach(var x in groupedDictionary)
+        foreach (var x in groupedDictionary)
         {
             response.Add(new EmployeeActivity()
             {
@@ -78,7 +78,7 @@ public class EmployeeService : IEmployeeService
 
     public async Task<List<EmployeeDTO>> Search(string text)
     {
-        var result = await _unitOfWork.Employees.GetWhere(x => x.FirstName.Contains(text) || x.LastName.Contains(text));
+        var result = await _unitOfWork.Employees.GetWhere(x => x.FirstName.Contains(text) || x.LastName.Contains(text) || x.Username.Contains(text) || x.Email.Contains(text));
         return _mapper.Map<List<EmployeeDTO>>(result);
     }
 }

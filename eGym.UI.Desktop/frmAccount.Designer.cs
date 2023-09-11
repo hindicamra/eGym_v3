@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            txtPassword = new TextBox();
+            components = new System.ComponentModel.Container();
             txtUsername = new TextBox();
             dateTimePicker1 = new DateTimePicker();
             rbZensko = new RadioButton();
             rbMale = new RadioButton();
-            label8 = new Label();
             label7 = new Label();
             label6 = new Label();
             label5 = new Label();
@@ -50,7 +49,6 @@
             btnSearch = new Button();
             txtSearch = new TextBox();
             dgvAccount = new DataGridView();
-            labelError = new Label();
             firstName = new DataGridViewTextBoxColumn();
             lastName = new DataGridViewTextBoxColumn();
             username = new DataGridViewTextBoxColumn();
@@ -58,16 +56,11 @@
             role = new DataGridViewTextBoxColumn();
             gender = new DataGridViewTextBoxColumn();
             birthDate = new DataGridViewTextBoxColumn();
+            labelError = new Label();
+            err = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)dgvAccount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)err).BeginInit();
             SuspendLayout();
-            // 
-            // txtPassword
-            // 
-            txtPassword.Location = new Point(487, 494);
-            txtPassword.Margin = new Padding(3, 2, 3, 2);
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(219, 23);
-            txtPassword.TabIndex = 48;
             // 
             // txtUsername
             // 
@@ -76,6 +69,7 @@
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(219, 23);
             txtUsername.TabIndex = 47;
+            txtUsername.Validating += txtUsername_Validating;
             // 
             // dateTimePicker1
             // 
@@ -88,6 +82,7 @@
             // rbZensko
             // 
             rbZensko.AutoSize = true;
+            rbZensko.Enabled = false;
             rbZensko.Location = new Point(336, 444);
             rbZensko.Margin = new Padding(3, 2, 3, 2);
             rbZensko.Name = "rbZensko";
@@ -100,6 +95,7 @@
             // rbMale
             // 
             rbMale.AutoSize = true;
+            rbMale.Enabled = false;
             rbMale.Location = new Point(180, 444);
             rbMale.Margin = new Padding(3, 2, 3, 2);
             rbMale.Name = "rbMale";
@@ -108,14 +104,6 @@
             rbMale.TabStop = true;
             rbMale.Text = "Musko";
             rbMale.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            label8.Location = new Point(405, 497);
-            label8.Name = "label8";
-            label8.Size = new Size(76, 16);
-            label8.TabIndex = 42;
-            label8.Text = "Password";
             // 
             // label7
             // 
@@ -148,6 +136,7 @@
             txtLastName.Name = "txtLastName";
             txtLastName.Size = new Size(219, 23);
             txtLastName.TabIndex = 38;
+            txtLastName.Validating += txtLastName_Validating;
             // 
             // label4
             // 
@@ -186,6 +175,7 @@
             txtName.Name = "txtName";
             txtName.Size = new Size(219, 23);
             txtName.TabIndex = 34;
+            txtName.Validating += txtName_Validating;
             // 
             // label3
             // 
@@ -269,14 +259,6 @@
             dgvAccount.TabIndex = 25;
             dgvAccount.CellClick += dgvAccount_CellClick;
             // 
-            // labelError
-            // 
-            labelError.AutoSize = true;
-            labelError.Location = new Point(12, 567);
-            labelError.Name = "labelError";
-            labelError.Size = new Size(0, 15);
-            labelError.TabIndex = 49;
-            // 
             // firstName
             // 
             firstName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -333,19 +315,30 @@
             birthDate.Name = "birthDate";
             birthDate.ReadOnly = true;
             // 
+            // labelError
+            // 
+            labelError.AutoSize = true;
+            labelError.Location = new Point(12, 567);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(0, 15);
+            labelError.TabIndex = 49;
+            // 
+            // err
+            // 
+            err.ContainerControl = this;
+            // 
             // frmAccount
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.Disable;
             BackColor = Color.Aqua;
             ClientSize = new Size(896, 591);
             Controls.Add(labelError);
-            Controls.Add(txtPassword);
             Controls.Add(txtUsername);
             Controls.Add(dateTimePicker1);
             Controls.Add(rbZensko);
             Controls.Add(rbMale);
-            Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -368,18 +361,16 @@
             Text = "Korisnici";
             Load += frmAccount_Load;
             ((System.ComponentModel.ISupportInitialize)dgvAccount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)err).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private TextBox txtPassword;
         private TextBox txtUsername;
         private DateTimePicker dateTimePicker1;
         private RadioButton rbZensko;
         private RadioButton rbMale;
-        private Label label8;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -405,5 +396,6 @@
         private DataGridViewTextBoxColumn role;
         private DataGridViewTextBoxColumn gender;
         private DataGridViewTextBoxColumn birthDate;
+        private ErrorProvider err;
     }
 }

@@ -13,6 +13,8 @@ namespace eGym.UI.Desktop
         public frmTraining()
         {
             InitializeComponent();
+            dgvTraining.AutoGenerateColumns = false;
+            dgvAccount.AutoGenerateColumns = false;
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
@@ -20,7 +22,6 @@ namespace eGym.UI.Desktop
             try
             {
                 dgvAccount.DataSource = await _userService.Get<List<AccountDTO>>(new { text = txtSearch.Text }, "/search");
-                dgvAccount.Columns["AccountId"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -33,7 +34,6 @@ namespace eGym.UI.Desktop
             try
             {
                 dgvAccount.DataSource = await _userService.Get<List<AccountDTO>>(null, "/getAll");
-                dgvAccount.Columns["AccountId"].Visible = false;
             }
             catch (Exception ex)
             {
@@ -49,8 +49,6 @@ namespace eGym.UI.Desktop
             try
             {
                 dgvTraining.DataSource = await _service.Get<List<TrainingDTO>>(new { userId = selectedUser.AccountId }, "/getUserTraningPlan");
-                dgvTraining.Columns["TrainingId"].Visible = false;
-                dgvTraining.Columns["AccountId"].Visible = false;
             }
             catch (Exception ex)
             {

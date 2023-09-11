@@ -33,9 +33,18 @@
             txtSearch = new TextBox();
             dgvAccount = new DataGridView();
             dgvTraining = new DataGridView();
+            day = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
             label5 = new Label();
             btnCreateNewTraining = new Button();
             labelError = new Label();
+            firstName = new DataGridViewTextBoxColumn();
+            lastName = new DataGridViewTextBoxColumn();
+            username = new DataGridViewTextBoxColumn();
+            email = new DataGridViewTextBoxColumn();
+            role = new DataGridViewTextBoxColumn();
+            gender = new DataGridViewTextBoxColumn();
+            birthDate = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgvAccount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvTraining).BeginInit();
             SuspendLayout();
@@ -74,6 +83,7 @@
             dgvAccount.AllowUserToAddRows = false;
             dgvAccount.AllowUserToDeleteRows = false;
             dgvAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAccount.Columns.AddRange(new DataGridViewColumn[] { firstName, lastName, username, email, role, gender, birthDate });
             dgvAccount.Location = new Point(10, 53);
             dgvAccount.Margin = new Padding(3, 2, 3, 2);
             dgvAccount.Name = "dgvAccount";
@@ -89,6 +99,7 @@
             dgvTraining.AllowUserToAddRows = false;
             dgvTraining.AllowUserToDeleteRows = false;
             dgvTraining.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTraining.Columns.AddRange(new DataGridViewColumn[] { day, description });
             dgvTraining.Location = new Point(10, 412);
             dgvTraining.Margin = new Padding(3, 2, 3, 2);
             dgvTraining.Name = "dgvTraining";
@@ -98,6 +109,23 @@
             dgvTraining.Size = new Size(875, 130);
             dgvTraining.TabIndex = 57;
             dgvTraining.CellDoubleClick += dgvTraining_CellDoubleClick;
+            // 
+            // day
+            // 
+            day.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            day.DataPropertyName = "day";
+            day.HeaderText = "Dan";
+            day.Name = "day";
+            day.ReadOnly = true;
+            day.Width = 53;
+            // 
+            // description
+            // 
+            description.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            description.DataPropertyName = "description";
+            description.HeaderText = "Opis";
+            description.Name = "description";
+            description.ReadOnly = true;
             // 
             // label5
             // 
@@ -127,6 +155,62 @@
             labelError.Name = "labelError";
             labelError.Size = new Size(0, 15);
             labelError.TabIndex = 60;
+            // 
+            // firstName
+            // 
+            firstName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            firstName.DataPropertyName = "firstName";
+            firstName.HeaderText = "Ime";
+            firstName.Name = "firstName";
+            firstName.ReadOnly = true;
+            // 
+            // lastName
+            // 
+            lastName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            lastName.DataPropertyName = "lastName";
+            lastName.HeaderText = "Prezime";
+            lastName.Name = "lastName";
+            lastName.ReadOnly = true;
+            // 
+            // username
+            // 
+            username.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            username.DataPropertyName = "username";
+            username.HeaderText = "Korisnicko Ime";
+            username.Name = "username";
+            username.ReadOnly = true;
+            // 
+            // email
+            // 
+            email.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            email.DataPropertyName = "email";
+            email.HeaderText = "Email";
+            email.Name = "email";
+            email.ReadOnly = true;
+            // 
+            // role
+            // 
+            role.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            role.DataPropertyName = "role";
+            role.HeaderText = "Uloga";
+            role.Name = "role";
+            role.ReadOnly = true;
+            // 
+            // gender
+            // 
+            gender.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            gender.DataPropertyName = "gender";
+            gender.HeaderText = "Spol";
+            gender.Name = "gender";
+            gender.ReadOnly = true;
+            // 
+            // birthDate
+            // 
+            birthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            birthDate.DataPropertyName = "birthDate";
+            birthDate.HeaderText = "Datum rodjenja";
+            birthDate.Name = "birthDate";
+            birthDate.ReadOnly = true;
             // 
             // frmTraining
             // 
@@ -162,5 +246,14 @@
         private Label label5;
         private Button btnCreateNewTraining;
         private Label labelError;
+        private DataGridViewTextBoxColumn day;
+        private DataGridViewTextBoxColumn description;
+        private DataGridViewTextBoxColumn firstName;
+        private DataGridViewTextBoxColumn lastName;
+        private DataGridViewTextBoxColumn username;
+        private DataGridViewTextBoxColumn email;
+        private DataGridViewTextBoxColumn role;
+        private DataGridViewTextBoxColumn gender;
+        private DataGridViewTextBoxColumn birthDate;
     }
 }

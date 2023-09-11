@@ -28,207 +28,205 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtpSearchTime = new System.Windows.Forms.DateTimePicker();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.dgvTrainings = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.rtxbDescription = new System.Windows.Forms.RichTextBox();
-            this.cmbType = new System.Windows.Forms.ComboBox();
-            this.dtpTo = new System.Windows.Forms.DateTimePicker();
-            this.dtpFrom = new System.Windows.Forms.DateTimePicker();
-            this.txtClient = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.labelError = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTrainings)).BeginInit();
-            this.SuspendLayout();
+            label1 = new Label();
+            dtpSearchTime = new DateTimePicker();
+            btnSearch = new Button();
+            dgvTrainings = new DataGridView();
+            label2 = new Label();
+            rtxbDescription = new RichTextBox();
+            cmbType = new ComboBox();
+            dtpTo = new DateTimePicker();
+            dtpFrom = new DateTimePicker();
+            txtClient = new TextBox();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            labelError = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvTrainings).BeginInit();
+            SuspendLayout();
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Datum";
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 32);
+            label1.Name = "label1";
+            label1.Size = new Size(43, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Datum";
             // 
             // dtpSearchTime
             // 
-            this.dtpSearchTime.Location = new System.Drawing.Point(61, 26);
-            this.dtpSearchTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtpSearchTime.Name = "dtpSearchTime";
-            this.dtpSearchTime.Size = new System.Drawing.Size(219, 23);
-            this.dtpSearchTime.TabIndex = 1;
+            dtpSearchTime.Location = new Point(61, 26);
+            dtpSearchTime.Margin = new Padding(3, 2, 3, 2);
+            dtpSearchTime.Name = "dtpSearchTime";
+            dtpSearchTime.Size = new Size(219, 23);
+            dtpSearchTime.TabIndex = 1;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(286, 26);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(82, 23);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Pretrazi";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            btnSearch.Location = new Point(286, 26);
+            btnSearch.Margin = new Padding(3, 2, 3, 2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(82, 23);
+            btnSearch.TabIndex = 2;
+            btnSearch.Text = "Pretrazi";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // dgvTrainings
             // 
-            this.dgvTrainings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTrainings.Location = new System.Drawing.Point(12, 53);
-            this.dgvTrainings.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dgvTrainings.Name = "dgvTrainings";
-            this.dgvTrainings.RowHeadersWidth = 51;
-            this.dgvTrainings.RowTemplate.Height = 29;
-            this.dgvTrainings.Size = new System.Drawing.Size(708, 213);
-            this.dgvTrainings.TabIndex = 3;
-            this.dgvTrainings.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTrainings_CellClick);
+            dgvTrainings.AllowUserToAddRows = false;
+            dgvTrainings.AllowUserToDeleteRows = false;
+            dgvTrainings.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTrainings.Location = new Point(12, 53);
+            dgvTrainings.Margin = new Padding(3, 2, 3, 2);
+            dgvTrainings.Name = "dgvTrainings";
+            dgvTrainings.ReadOnly = true;
+            dgvTrainings.RowHeadersWidth = 51;
+            dgvTrainings.RowTemplate.Height = 29;
+            dgvTrainings.Size = new Size(708, 213);
+            dgvTrainings.TabIndex = 3;
+            dgvTrainings.CellClick += dgvTrainings_CellClick;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(149, 15);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Prikaza dnevnog rasporeda";
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(149, 15);
+            label2.TabIndex = 4;
+            label2.Text = "Prikaza dnevnog rasporeda";
             // 
             // rtxbDescription
             // 
-            this.rtxbDescription.Location = new System.Drawing.Point(130, 351);
-            this.rtxbDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rtxbDescription.Name = "rtxbDescription";
-            this.rtxbDescription.ReadOnly = true;
-            this.rtxbDescription.Size = new System.Drawing.Size(500, 84);
-            this.rtxbDescription.TabIndex = 27;
-            this.rtxbDescription.Text = "";
+            rtxbDescription.Location = new Point(130, 351);
+            rtxbDescription.Margin = new Padding(3, 2, 3, 2);
+            rtxbDescription.Name = "rtxbDescription";
+            rtxbDescription.ReadOnly = true;
+            rtxbDescription.Size = new Size(500, 84);
+            rtxbDescription.TabIndex = 27;
+            rtxbDescription.Text = "";
             // 
             // cmbType
             // 
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Items.AddRange(new object[] {
-            "Tezinski",
-            "Funkcionali",
-            "Aerobik",
-            "Kardio"});
-            this.cmbType.Location = new System.Drawing.Point(130, 324);
-            this.cmbType.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(233, 23);
-            this.cmbType.TabIndex = 26;
+            cmbType.FormattingEnabled = true;
+            cmbType.Items.AddRange(new object[] { "Tezinski", "Funkcionali", "Aerobik", "Kardio" });
+            cmbType.Location = new Point(130, 324);
+            cmbType.Margin = new Padding(3, 2, 3, 2);
+            cmbType.Name = "cmbType";
+            cmbType.Size = new Size(233, 23);
+            cmbType.TabIndex = 26;
             // 
             // dtpTo
             // 
-            this.dtpTo.Location = new System.Drawing.Point(397, 297);
-            this.dtpTo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtpTo.Name = "dtpTo";
-            this.dtpTo.Size = new System.Drawing.Size(233, 23);
-            this.dtpTo.TabIndex = 25;
+            dtpTo.Location = new Point(397, 297);
+            dtpTo.Margin = new Padding(3, 2, 3, 2);
+            dtpTo.Name = "dtpTo";
+            dtpTo.Size = new Size(233, 23);
+            dtpTo.TabIndex = 25;
             // 
             // dtpFrom
             // 
-            this.dtpFrom.Location = new System.Drawing.Point(130, 297);
-            this.dtpFrom.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtpFrom.Name = "dtpFrom";
-            this.dtpFrom.Size = new System.Drawing.Size(233, 23);
-            this.dtpFrom.TabIndex = 24;
+            dtpFrom.Location = new Point(130, 297);
+            dtpFrom.Margin = new Padding(3, 2, 3, 2);
+            dtpFrom.Name = "dtpFrom";
+            dtpFrom.Size = new Size(233, 23);
+            dtpFrom.TabIndex = 24;
             // 
             // txtClient
             // 
-            this.txtClient.Location = new System.Drawing.Point(130, 270);
-            this.txtClient.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtClient.Name = "txtClient";
-            this.txtClient.ReadOnly = true;
-            this.txtClient.Size = new System.Drawing.Size(233, 23);
-            this.txtClient.TabIndex = 23;
+            txtClient.Location = new Point(130, 270);
+            txtClient.Margin = new Padding(3, 2, 3, 2);
+            txtClient.Name = "txtClient";
+            txtClient.ReadOnly = true;
+            txtClient.Size = new Size(233, 23);
+            txtClient.TabIndex = 23;
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 354);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(31, 15);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "Opis";
+            label7.AutoSize = true;
+            label7.Location = new Point(12, 354);
+            label7.Name = "label7";
+            label7.Size = new Size(31, 15);
+            label7.TabIndex = 22;
+            label7.Text = "Opis";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 327);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(80, 15);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Vrsta treninga";
+            label6.AutoSize = true;
+            label6.Location = new Point(12, 327);
+            label6.Name = "label6";
+            label6.Size = new Size(80, 15);
+            label6.TabIndex = 21;
+            label6.Text = "Vrsta treninga";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(369, 303);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(22, 15);
-            this.label5.TabIndex = 20;
-            this.label5.Text = "Do";
+            label5.AutoSize = true;
+            label5.Location = new Point(369, 303);
+            label5.Name = "label5";
+            label5.Size = new Size(22, 15);
+            label5.TabIndex = 20;
+            label5.Text = "Do";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 303);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 15);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Od";
+            label4.AutoSize = true;
+            label4.Location = new Point(12, 303);
+            label4.Name = "label4";
+            label4.Size = new Size(23, 15);
+            label4.TabIndex = 19;
+            label4.Text = "Od";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 272);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 15);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Klijent";
+            label3.AutoSize = true;
+            label3.Location = new Point(12, 272);
+            label3.Name = "label3";
+            label3.Size = new Size(40, 15);
+            label3.TabIndex = 18;
+            label3.Text = "Klijent";
             // 
             // labelError
             // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(12, 459);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 15);
-            this.labelError.TabIndex = 28;
+            labelError.AutoSize = true;
+            labelError.Location = new Point(12, 459);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(0, 15);
+            labelError.TabIndex = 28;
             // 
             // frmReservationsOverview
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(732, 483);
-            this.Controls.Add(this.labelError);
-            this.Controls.Add(this.rtxbDescription);
-            this.Controls.Add(this.cmbType);
-            this.Controls.Add(this.dtpTo);
-            this.Controls.Add(this.dtpFrom);
-            this.Controls.Add(this.txtClient);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dgvTrainings);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.dtpSearchTime);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
-            this.Name = "frmReservationsOverview";
-            this.Text = "Pregled treninga";
-            this.Load += new System.EventHandler(this.frmReservationsOverview_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTrainings)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Aqua;
+            ClientSize = new Size(732, 483);
+            Controls.Add(labelError);
+            Controls.Add(rtxbDescription);
+            Controls.Add(cmbType);
+            Controls.Add(dtpTo);
+            Controls.Add(dtpFrom);
+            Controls.Add(txtClient);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(dgvTrainings);
+            Controls.Add(btnSearch);
+            Controls.Add(dtpSearchTime);
+            Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            Name = "frmReservationsOverview";
+            Text = "Pregled treninga";
+            Load += frmReservationsOverview_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvTrainings).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

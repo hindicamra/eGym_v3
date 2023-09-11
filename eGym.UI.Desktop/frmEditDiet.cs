@@ -15,6 +15,7 @@ public partial class frmEditDiet : Form
         this.diet = diet;
         clientName = name;
         InitializeComponent();
+
     }
 
     private void frmEditDiet_Load(object sender, EventArgs e)

@@ -57,7 +57,7 @@ namespace eGym.UI.Desktop
             }
             else
             {
-                err.SetError(control, ""); // Clear error message
+                err.SetError(control, "");
             }
 
             return isValid;
@@ -73,7 +73,7 @@ namespace eGym.UI.Desktop
             }
             else
             {
-                err.SetError(textBox, ""); // Clear error message
+                err.SetError(textBox, "");
             }
 
             return isValid;
@@ -89,10 +89,122 @@ namespace eGym.UI.Desktop
             }
             else
             {
-                err.SetError(textBox, ""); // Clear error message
+                err.SetError(textBox, "");
             }
 
             return isValid;
+        }
+        private void SetError(Control control, string message)
+        {
+            err.SetError(control, message);
+            control.Focus();
+        }
+
+        private void txtName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string lastName = txtName.Text.Trim();
+
+            if (string.IsNullOrEmpty(lastName))
+            {
+                e.Cancel = true;
+                SetError(txtName, "Morate unijeti ime");
+            }
+            else if (txtName.Text.Length < 2)
+            {
+                e.Cancel = true;
+                SetError(txtName, "Ime ne smije biti kraće od 2 karaktera.");
+            }
+            else
+            {
+                e.Cancel = false;
+                SetError(txtName, "");
+            }
+        }
+
+        private void txtLastName_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string lastName = txtLastName.Text.Trim();
+
+            if (string.IsNullOrEmpty(lastName))
+            {
+                e.Cancel = true;
+                SetError(txtLastName, "Morate unijeti ime");
+            }
+            else if (txtLastName.Text.Length < 2)
+            {
+                e.Cancel = true;
+                SetError(txtLastName, "Prezime ne smije biti kraće od 2 karaktera.");
+            }
+            else
+            {
+                e.Cancel = false;
+                SetError(txtLastName, "");
+            }
+        }
+
+        private void txtEmail_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string lastName = txtEmail.Text.Trim();
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            if (string.IsNullOrEmpty(lastName))
+            {
+                e.Cancel = true;
+                SetError(txtEmail, "Morate unijeti email");
+            }
+
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(txtEmail.Text, emailPattern))
+            {
+                e.Cancel = true;
+                SetError(txtEmail, "Email nije u ispravnom formatu.");
+            }
+            else
+            {
+                e.Cancel = false;
+                SetError(txtEmail, "");
+            }
+        }
+
+        private void txtUsername_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string username = txtUsername.Text.Trim();
+
+            if (string.IsNullOrEmpty(username))
+            {
+                e.Cancel = true;
+                SetError(txtUsername, "Morate unijeti korisnicko ime!");
+            }
+            else if (txtUsername.Text.Length < 2)
+            {
+                e.Cancel = true;
+                SetError(txtUsername, "Korisnicko ime ne smije biti kraće od 2 karaktera.");
+            }
+            else
+            {
+                e.Cancel = false;
+                SetError(txtUsername, "");
+            }
+        }
+
+        private void txtPassword_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string password = txtPassword.Text.Trim();
+
+            if (string.IsNullOrEmpty(password))
+            {
+                e.Cancel = true;
+                SetError(txtPassword, "Morate unijeti šifru.");
+            }
+            else if (txtPassword.Text.Length < 2)
+            {
+                e.Cancel = true;
+                SetError(txtPassword, "Šifra ne smije biti kraće od 2 karaktera.");
+            }
+            else
+            {
+                e.Cancel = false;
+                SetError(txtPassword, "");
+            }
         }
     }
 }

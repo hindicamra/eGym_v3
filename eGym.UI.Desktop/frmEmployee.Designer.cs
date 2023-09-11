@@ -150,7 +150,7 @@
             btnSearch.Margin = new Padding(3, 2, 3, 2);
             btnSearch.Name = "btnSearch";
             btnSearch.RightToLeft = RightToLeft.No;
-            btnSearch.Size = new Size(82, 22);
+            btnSearch.Size = new Size(82, 24);
             btnSearch.TabIndex = 3;
             btnSearch.Text = "Pretrazi";
             btnSearch.UseVisualStyleBackColor = true;
@@ -285,6 +285,7 @@
             // rbMale
             // 
             rbMale.AutoSize = true;
+            rbMale.Enabled = false;
             rbMale.Location = new Point(232, 446);
             rbMale.Margin = new Padding(3, 2, 3, 2);
             rbMale.Name = "rbMale";
@@ -297,6 +298,7 @@
             // rbZensko
             // 
             rbZensko.AutoSize = true;
+            rbZensko.Enabled = false;
             rbZensko.Location = new Point(388, 446);
             rbZensko.Margin = new Padding(3, 2, 3, 2);
             rbZensko.Name = "rbZensko";
@@ -349,6 +351,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.Disable;
             BackColor = Color.Aqua;
             ClientSize = new Size(895, 630);
             Controls.Add(labelError);

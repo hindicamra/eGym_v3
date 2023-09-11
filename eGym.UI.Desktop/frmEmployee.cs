@@ -13,6 +13,7 @@ namespace eGym.UI.Desktop
         public frmEmployee()
         {
             InitializeComponent();
+            this.comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             dgvEmployee.AutoGenerateColumns = false;
         }
 
@@ -156,7 +157,7 @@ namespace eGym.UI.Desktop
 
         private void textBoxName_Validating(object sender, CancelEventArgs e)
         {
-            string name = txtName.Text.Trim(); 
+            string name = txtName.Text.Trim();
 
             if (string.IsNullOrEmpty(name))
             {
@@ -183,7 +184,7 @@ namespace eGym.UI.Desktop
 
         private void textBoxLastName_Validating(object sender, CancelEventArgs e)
         {
-            string lastName = txtLastName.Text.Trim(); 
+            string lastName = txtLastName.Text.Trim();
 
             if (string.IsNullOrEmpty(lastName))
             {

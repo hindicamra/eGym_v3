@@ -19,8 +19,14 @@ namespace eGym.UI.Desktop
         {
             try
             {
-                dgvAccount.DataSource = await _userService.Get<List<AccountDTO>>(new { text = txtSearch.Text }, "/search");
-                //    dgvAccount.Columns["AccountId"].Visible = false;
+                if (txtSearch.Text =="")
+                {
+                    dgvAccount.DataSource = await _userService.Get<List<AccountDTO>>(null, "/getAll");
+                }
+                else
+                {
+                    dgvAccount.DataSource = await _userService.Get<List<AccountDTO>>(new { text = txtSearch.Text }, "/search");
+                }
             }
             catch (Exception ex)
             {

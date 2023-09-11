@@ -19,7 +19,7 @@ public class DietController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Roles = "Employee,User")]
+    [Authorize(Roles = "Employee,User,Admin")]
     public async Task<IActionResult> GetById(int id)
     {
         try
@@ -46,7 +46,7 @@ public class DietController : ControllerBase
 
     [HttpGet]
     [Route("getByUserId")]
-    //[Authorize(Roles = "Employee,User")]
+    [Authorize(Roles = "Employee,Admin,User")]
     public async Task<IActionResult> GetByUserId(int userId)
     {
         try
@@ -72,7 +72,7 @@ public class DietController : ControllerBase
     }
 
     [HttpDelete]
-    [Authorize(Roles = "Employee")]
+    [Authorize(Roles = "Employee,Admin")]
     public async Task<IActionResult> Delete(int id)
     {
         try
@@ -93,7 +93,7 @@ public class DietController : ControllerBase
     }
 
     [HttpPut]
-    [Authorize(Roles = "Employee")]
+    [Authorize(Roles = "Employee,Admin")]
     public async Task<IActionResult> Update([FromBody] UpdateDietRequest request, int Id)
     {
         try
@@ -116,7 +116,7 @@ public class DietController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "Employee")]
+    [Authorize(Roles = "Employee,Admin")]
     public async Task<IActionResult> Create([FromBody] CreateDietRequest request)
     {
         try
