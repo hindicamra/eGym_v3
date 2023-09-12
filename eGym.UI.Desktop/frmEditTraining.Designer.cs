@@ -28,143 +28,144 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.cmbDay = new System.Windows.Forms.ComboBox();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.rtxtDescription = new System.Windows.Forms.RichTextBox();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.labelError = new System.Windows.Forms.Label();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            btnDelete = new Button();
+            cmbDay = new ComboBox();
+            btnSave = new Button();
+            rtxtDescription = new RichTextBox();
+            txtName = new TextBox();
+            label6 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            labelError = new Label();
+            err = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)err).BeginInit();
+            SuspendLayout();
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(182, 364);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(89, 27);
-            this.btnDelete.TabIndex = 69;
-            this.btnDelete.Text = "Obrisi";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            btnDelete.Location = new Point(182, 364);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(89, 27);
+            btnDelete.TabIndex = 69;
+            btnDelete.Text = "Obrisi";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // cmbDay
             // 
-            this.cmbDay.FormattingEnabled = true;
-            this.cmbDay.Items.AddRange(new object[] {
-            "Nedjelja",
-            "Ponedjeljak",
-            "Utorak",
-            "Srijeda",
-            "Cetvrtak",
-            "Petak",
-            "Subota"});
-            this.cmbDay.Location = new System.Drawing.Point(102, 131);
-            this.cmbDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbDay.Name = "cmbDay";
-            this.cmbDay.Size = new System.Drawing.Size(280, 23);
-            this.cmbDay.TabIndex = 68;
+            cmbDay.FormattingEnabled = true;
+            cmbDay.Items.AddRange(new object[] { "Nedjelja", "Ponedjeljak", "Utorak", "Srijeda", "Cetvrtak", "Petak", "Subota" });
+            cmbDay.Location = new Point(102, 131);
+            cmbDay.Margin = new Padding(3, 2, 3, 2);
+            cmbDay.Name = "cmbDay";
+            cmbDay.Size = new Size(280, 23);
+            cmbDay.TabIndex = 68;
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(293, 364);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(89, 27);
-            this.btnSave.TabIndex = 67;
-            this.btnSave.Text = "Spasi";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Location = new Point(293, 364);
+            btnSave.Margin = new Padding(3, 2, 3, 2);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(89, 27);
+            btnSave.TabIndex = 67;
+            btnSave.Text = "Spasi";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // rtxtDescription
             // 
-            this.rtxtDescription.Location = new System.Drawing.Point(102, 191);
-            this.rtxtDescription.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.rtxtDescription.Name = "rtxtDescription";
-            this.rtxtDescription.Size = new System.Drawing.Size(280, 149);
-            this.rtxtDescription.TabIndex = 66;
-            this.rtxtDescription.Text = "";
+            rtxtDescription.Location = new Point(102, 191);
+            rtxtDescription.Margin = new Padding(3, 2, 3, 2);
+            rtxtDescription.Name = "rtxtDescription";
+            rtxtDescription.Size = new Size(280, 149);
+            rtxtDescription.TabIndex = 66;
+            rtxtDescription.Text = "";
+            rtxtDescription.Validating += rtxtDescription_Validating;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(102, 69);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(280, 23);
-            this.txtName.TabIndex = 65;
+            txtName.Location = new Point(102, 69);
+            txtName.Margin = new Padding(3, 2, 3, 2);
+            txtName.Name = "txtName";
+            txtName.ReadOnly = true;
+            txtName.Size = new Size(280, 23);
+            txtName.TabIndex = 65;
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(11, 194);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 15);
-            this.label6.TabIndex = 64;
-            this.label6.Text = "Opis";
+            label6.AutoSize = true;
+            label6.Location = new Point(11, 194);
+            label6.Name = "label6";
+            label6.Size = new Size(31, 15);
+            label6.TabIndex = 64;
+            label6.Text = "Opis";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(11, 134);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 15);
-            this.label4.TabIndex = 63;
-            this.label4.Text = "Dan";
+            label4.AutoSize = true;
+            label4.Location = new Point(11, 134);
+            label4.Name = "label4";
+            label4.Size = new Size(28, 15);
+            label4.TabIndex = 63;
+            label4.Text = "Dan";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(11, 71);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 15);
-            this.label3.TabIndex = 62;
-            this.label3.Text = "Klijent";
+            label3.AutoSize = true;
+            label3.Location = new Point(11, 71);
+            label3.Name = "label3";
+            label3.Size = new Size(40, 15);
+            label3.TabIndex = 62;
+            label3.Text = "Klijent";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(152, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 15);
-            this.label2.TabIndex = 61;
-            this.label2.Text = "Plan treninga";
+            label2.AutoSize = true;
+            label2.Location = new Point(152, 14);
+            label2.Name = "label2";
+            label2.Size = new Size(77, 15);
+            label2.TabIndex = 61;
+            label2.Text = "Plan treninga";
             // 
             // labelError
             // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(11, 398);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 15);
-            this.labelError.TabIndex = 70;
+            labelError.AutoSize = true;
+            labelError.Location = new Point(11, 398);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(0, 15);
+            labelError.TabIndex = 70;
+            // 
+            // err
+            // 
+            err.ContainerControl = this;
             // 
             // frmEditTraining
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(404, 422);
-            this.Controls.Add(this.labelError);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.cmbDay);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.rtxtDescription);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MaximizeBox = false;
-            this.Name = "frmEditTraining";
-            this.Text = "Edit Trening";
-            this.Load += new System.EventHandler(this.frmEditTraining_Load);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Aqua;
+            ClientSize = new Size(404, 422);
+            Controls.Add(labelError);
+            Controls.Add(btnDelete);
+            Controls.Add(cmbDay);
+            Controls.Add(btnSave);
+            Controls.Add(rtxtDescription);
+            Controls.Add(txtName);
+            Controls.Add(label6);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            Name = "frmEditTraining";
+            Text = "Edit Trening";
+            Load += frmEditTraining_Load;
+            ((System.ComponentModel.ISupportInitialize)err).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -179,5 +180,6 @@
         private Label label3;
         private Label label2;
         private Label labelError;
+        private ErrorProvider err;
     }
 }

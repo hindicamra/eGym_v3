@@ -11,6 +11,8 @@ namespace eGym.UI.Desktop
         public frmLogin()
         {
             InitializeComponent();
+            txbPassword.Text = "test";
+            txbUsername.Text = "desktop";
         }
 
         private async void btnLogin_Click(object sender, EventArgs e)

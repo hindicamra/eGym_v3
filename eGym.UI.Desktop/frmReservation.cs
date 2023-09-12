@@ -14,6 +14,8 @@ namespace eGym.UI.Desktop
         public frmReservation()
         {
             InitializeComponent();
+            this.cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
+            dgvReservations.AutoGenerateColumns = false;
         }
 
         private async void btnAccept_Click(object sender, EventArgs e)
@@ -30,7 +32,7 @@ namespace eGym.UI.Desktop
                 dgvReservations.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpDate.Value }, "/GetPendingReservation");
                 labelError.Text = "Reservacija potvrdjena";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }
@@ -52,7 +54,7 @@ namespace eGym.UI.Desktop
 
                 dgvReservations.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpDate.Value }, "/GetPendingReservation");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }
@@ -62,7 +64,7 @@ namespace eGym.UI.Desktop
         {
             try
             {
-                if(selectedReservation == null)
+                if (selectedReservation == null)
                 {
                     labelError.Text = "Morate odabrati rezervaciju";
                     return;
@@ -73,7 +75,7 @@ namespace eGym.UI.Desktop
                 labelError.Text = "Reservacija odbijena";
 
             }
-            catch(Exception) 
+            catch (Exception)
             {
                 labelError.Text = "Desila se greska";
             }
@@ -84,11 +86,6 @@ namespace eGym.UI.Desktop
             try
             {
                 dgvReservations.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpDate.Value }, "/GetPendingReservation");
-                dgvReservations.Columns["ReservationId"].Visible = false;
-                dgvReservations.Columns["AccountId"].Visible = false;
-                dgvReservations.Columns["EmployeeId"].Visible = false;
-                dgvReservations.Columns["EmployeeName"].Visible = false;
-
             }
             catch (Exception ex)
             {
@@ -99,7 +96,7 @@ namespace eGym.UI.Desktop
         private async void dgvReservations_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            selectedReservation = dgvReservations.Rows[index].DataBoundItem as ReservationDTO;
+            selectedReservation = (ReservationDTO)dgvReservations.Rows[index].DataBoundItem;
 
             try
             {
@@ -111,7 +108,7 @@ namespace eGym.UI.Desktop
                 cmbType.SelectedIndex = (int)selectedReservation.ReservationType;
                 rtxbDescription.Text = selectedReservation.Description;
             }
-            catch(Exception ex )
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }

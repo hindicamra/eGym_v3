@@ -28,279 +28,349 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.txtUsername = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.rbZensko = new System.Windows.Forms.RadioButton();
-            this.rbMale = new System.Windows.Forms.RadioButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtLastName = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtId = new System.Windows.Forms.TextBox();
-            this.ID = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dgvAccount = new System.Windows.Forms.DataGridView();
-            this.labelError = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(557, 659);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(250, 27);
-            this.txtPassword.TabIndex = 48;
+            components = new System.ComponentModel.Container();
+            txtUsername = new TextBox();
+            dateTimePicker1 = new DateTimePicker();
+            rbZensko = new RadioButton();
+            rbMale = new RadioButton();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            txtLastName = new TextBox();
+            label4 = new Label();
+            btnSave = new Button();
+            btnDelete = new Button();
+            txtName = new TextBox();
+            label3 = new Label();
+            txtId = new TextBox();
+            ID = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            btnSearch = new Button();
+            txtSearch = new TextBox();
+            dgvAccount = new DataGridView();
+            firstName = new DataGridViewTextBoxColumn();
+            lastName = new DataGridViewTextBoxColumn();
+            username = new DataGridViewTextBoxColumn();
+            email = new DataGridViewTextBoxColumn();
+            role = new DataGridViewTextBoxColumn();
+            gender = new DataGridViewTextBoxColumn();
+            birthDate = new DataGridViewTextBoxColumn();
+            labelError = new Label();
+            err = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)dgvAccount).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)err).BeginInit();
+            SuspendLayout();
             // 
             // txtUsername
             // 
-            this.txtUsername.Location = new System.Drawing.Point(206, 659);
-            this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(250, 27);
-            this.txtUsername.TabIndex = 47;
+            txtUsername.Location = new Point(180, 494);
+            txtUsername.Margin = new Padding(3, 2, 3, 2);
+            txtUsername.Name = "txtUsername";
+            txtUsername.Size = new Size(219, 23);
+            txtUsername.TabIndex = 47;
+            txtUsername.Validating += txtUsername_Validating;
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(206, 623);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 27);
-            this.dateTimePicker1.TabIndex = 46;
+            dateTimePicker1.Location = new Point(180, 467);
+            dateTimePicker1.Margin = new Padding(3, 2, 3, 2);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(219, 23);
+            dateTimePicker1.TabIndex = 46;
             // 
             // rbZensko
             // 
-            this.rbZensko.AutoSize = true;
-            this.rbZensko.Location = new System.Drawing.Point(384, 592);
-            this.rbZensko.Name = "rbZensko";
-            this.rbZensko.Size = new System.Drawing.Size(77, 24);
-            this.rbZensko.TabIndex = 45;
-            this.rbZensko.TabStop = true;
-            this.rbZensko.Text = "Zensko";
-            this.rbZensko.UseVisualStyleBackColor = true;
+            rbZensko.AutoSize = true;
+            rbZensko.Enabled = false;
+            rbZensko.Location = new Point(336, 444);
+            rbZensko.Margin = new Padding(3, 2, 3, 2);
+            rbZensko.Name = "rbZensko";
+            rbZensko.Size = new Size(63, 19);
+            rbZensko.TabIndex = 45;
+            rbZensko.TabStop = true;
+            rbZensko.Text = "Zensko";
+            rbZensko.UseVisualStyleBackColor = true;
             // 
             // rbMale
             // 
-            this.rbMale.AutoSize = true;
-            this.rbMale.Location = new System.Drawing.Point(206, 592);
-            this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(73, 24);
-            this.rbMale.TabIndex = 44;
-            this.rbMale.TabStop = true;
-            this.rbMale.Text = "Musko";
-            this.rbMale.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.Location = new System.Drawing.Point(463, 663);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(87, 21);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "Password";
+            rbMale.AutoSize = true;
+            rbMale.Enabled = false;
+            rbMale.Location = new Point(180, 444);
+            rbMale.Margin = new Padding(3, 2, 3, 2);
+            rbMale.Name = "rbMale";
+            rbMale.Size = new Size(61, 19);
+            rbMale.TabIndex = 44;
+            rbMale.TabStop = true;
+            rbMale.Text = "Musko";
+            rbMale.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
-            this.label7.Location = new System.Drawing.Point(14, 663);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(87, 21);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "Username";
+            label7.Location = new Point(12, 497);
+            label7.Name = "label7";
+            label7.Size = new Size(76, 16);
+            label7.TabIndex = 41;
+            label7.Text = "Username";
             // 
             // label6
             // 
-            this.label6.Location = new System.Drawing.Point(14, 631);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 21);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "Datum rodjenja";
+            label6.Location = new Point(12, 473);
+            label6.Name = "label6";
+            label6.Size = new Size(103, 16);
+            label6.TabIndex = 40;
+            label6.Text = "Datum rodjenja";
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(14, 595);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 20);
-            this.label5.TabIndex = 39;
-            this.label5.Text = "Spol";
+            label5.Location = new Point(12, 446);
+            label5.Name = "label5";
+            label5.Size = new Size(62, 15);
+            label5.TabIndex = 39;
+            label5.Text = "Spol";
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(557, 556);
-            this.txtLastName.Name = "txtLastName";
-            this.txtLastName.Size = new System.Drawing.Size(250, 27);
-            this.txtLastName.TabIndex = 38;
+            txtLastName.Location = new Point(487, 417);
+            txtLastName.Margin = new Padding(3, 2, 3, 2);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(219, 23);
+            txtLastName.TabIndex = 38;
+            txtLastName.Validating += txtLastName_Validating;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(463, 560);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 20);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Prezime";
+            label4.Location = new Point(405, 420);
+            label4.Name = "label4";
+            label4.Size = new Size(62, 15);
+            label4.TabIndex = 37;
+            label4.Text = "Prezime";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(659, 695);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(147, 45);
-            this.btnSave.TabIndex = 36;
-            this.btnSave.Text = "Spasi";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            btnSave.Location = new Point(577, 521);
+            btnSave.Margin = new Padding(3, 2, 3, 2);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(129, 34);
+            btnSave.TabIndex = 36;
+            btnSave.Text = "Spasi";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(505, 695);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(147, 45);
-            this.btnDelete.TabIndex = 35;
-            this.btnDelete.Text = "Obrisi";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            btnDelete.Location = new Point(442, 521);
+            btnDelete.Margin = new Padding(3, 2, 3, 2);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(129, 34);
+            btnDelete.TabIndex = 35;
+            btnDelete.Text = "Obrisi";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(206, 556);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(250, 27);
-            this.txtName.TabIndex = 34;
+            txtName.Location = new Point(180, 417);
+            txtName.Margin = new Padding(3, 2, 3, 2);
+            txtName.Name = "txtName";
+            txtName.Size = new Size(219, 23);
+            txtName.TabIndex = 34;
+            txtName.Validating += txtName_Validating;
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(14, 560);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 20);
-            this.label3.TabIndex = 33;
-            this.label3.Text = "Ime";
+            label3.Location = new Point(12, 420);
+            label3.Name = "label3";
+            label3.Size = new Size(45, 15);
+            label3.TabIndex = 33;
+            label3.Text = "Ime";
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(243, 520);
-            this.txtId.Name = "txtId";
-            this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(250, 27);
-            this.txtId.TabIndex = 32;
-            this.txtId.Visible = false;
-            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
+            txtId.Location = new Point(213, 390);
+            txtId.Margin = new Padding(3, 2, 3, 2);
+            txtId.Name = "txtId";
+            txtId.ReadOnly = true;
+            txtId.Size = new Size(219, 23);
+            txtId.TabIndex = 32;
+            txtId.Visible = false;
             // 
             // ID
             // 
-            this.ID.AutoSize = true;
-            this.ID.Location = new System.Drawing.Point(123, 527);
-            this.ID.Name = "ID";
-            this.ID.Size = new System.Drawing.Size(24, 20);
-            this.ID.TabIndex = 31;
-            this.ID.Text = "ID";
-            this.ID.Visible = false;
+            ID.AutoSize = true;
+            ID.Location = new Point(108, 395);
+            ID.Name = "ID";
+            ID.Size = new Size(18, 15);
+            ID.TabIndex = 31;
+            ID.Text = "ID";
+            ID.Visible = false;
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 527);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 20);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Detalji korisnika";
+            label2.AutoSize = true;
+            label2.Location = new Point(12, 395);
+            label2.Name = "label2";
+            label2.Size = new Size(90, 15);
+            label2.TabIndex = 30;
+            label2.Text = "Detalji korisnika";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(206, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 20);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Lista korisnika";
+            label1.AutoSize = true;
+            label1.Location = new Point(180, 8);
+            label1.Name = "label1";
+            label1.Size = new Size(81, 15);
+            label1.TabIndex = 29;
+            label1.Text = "Lista korisnika";
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(206, 36);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
-            this.btnSearch.TabIndex = 28;
-            this.btnSearch.Text = "Pretrazi";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            btnSearch.Location = new Point(180, 27);
+            btnSearch.Margin = new Padding(3, 2, 3, 2);
+            btnSearch.Name = "btnSearch";
+            btnSearch.RightToLeft = RightToLeft.No;
+            btnSearch.Size = new Size(82, 22);
+            btnSearch.TabIndex = 28;
+            btnSearch.Text = "Pretrazi";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(14, 35);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(183, 27);
-            this.txtSearch.TabIndex = 27;
+            txtSearch.Location = new Point(12, 26);
+            txtSearch.Margin = new Padding(3, 2, 3, 2);
+            txtSearch.Name = "txtSearch";
+            txtSearch.Size = new Size(161, 23);
+            txtSearch.TabIndex = 27;
             // 
             // dgvAccount
             // 
-            this.dgvAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAccount.Location = new System.Drawing.Point(14, 71);
-            this.dgvAccount.Name = "dgvAccount";
-            this.dgvAccount.RowHeadersWidth = 51;
-            this.dgvAccount.RowTemplate.Height = 29;
-            this.dgvAccount.Size = new System.Drawing.Size(997, 453);
-            this.dgvAccount.TabIndex = 25;
-            this.dgvAccount.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAccount_CellClick);
+            dgvAccount.AllowUserToAddRows = false;
+            dgvAccount.AllowUserToDeleteRows = false;
+            dgvAccount.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvAccount.Columns.AddRange(new DataGridViewColumn[] { firstName, lastName, username, email, role, gender, birthDate });
+            dgvAccount.Location = new Point(12, 53);
+            dgvAccount.Margin = new Padding(3, 2, 3, 2);
+            dgvAccount.Name = "dgvAccount";
+            dgvAccount.ReadOnly = true;
+            dgvAccount.RowHeadersWidth = 51;
+            dgvAccount.RowTemplate.Height = 29;
+            dgvAccount.Size = new Size(872, 340);
+            dgvAccount.TabIndex = 25;
+            dgvAccount.CellClick += dgvAccount_CellClick;
+            // 
+            // firstName
+            // 
+            firstName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            firstName.DataPropertyName = "firstName";
+            firstName.HeaderText = "Ime";
+            firstName.Name = "firstName";
+            firstName.ReadOnly = true;
+            // 
+            // lastName
+            // 
+            lastName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            lastName.DataPropertyName = "lastName";
+            lastName.HeaderText = "Prezime";
+            lastName.Name = "lastName";
+            lastName.ReadOnly = true;
+            // 
+            // username
+            // 
+            username.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            username.DataPropertyName = "username";
+            username.HeaderText = "Username";
+            username.Name = "username";
+            username.ReadOnly = true;
+            // 
+            // email
+            // 
+            email.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            email.DataPropertyName = "email";
+            email.HeaderText = "Email";
+            email.Name = "email";
+            email.ReadOnly = true;
+            // 
+            // role
+            // 
+            role.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            role.DataPropertyName = "role";
+            role.HeaderText = "Uloga";
+            role.Name = "role";
+            role.ReadOnly = true;
+            // 
+            // gender
+            // 
+            gender.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            gender.DataPropertyName = "gender";
+            gender.HeaderText = "Spol";
+            gender.Name = "gender";
+            gender.ReadOnly = true;
+            // 
+            // birthDate
+            // 
+            birthDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            birthDate.DataPropertyName = "birthDate";
+            birthDate.HeaderText = "Datum rodenja";
+            birthDate.Name = "birthDate";
+            birthDate.ReadOnly = true;
             // 
             // labelError
             // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(14, 756);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(0, 20);
-            this.labelError.TabIndex = 49;
+            labelError.AutoSize = true;
+            labelError.Location = new Point(12, 567);
+            labelError.Name = "labelError";
+            labelError.Size = new Size(0, 15);
+            labelError.TabIndex = 49;
+            // 
+            // err
+            // 
+            err.ContainerControl = this;
             // 
             // frmAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Aqua;
-            this.ClientSize = new System.Drawing.Size(1024, 788);
-            this.Controls.Add(this.labelError);
-            this.Controls.Add(this.txtPassword);
-            this.Controls.Add(this.txtUsername);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.rbZensko);
-            this.Controls.Add(this.rbMale);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtLastName);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtId);
-            this.Controls.Add(this.ID);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.txtSearch);
-            this.Controls.Add(this.dgvAccount);
-            this.MaximizeBox = false;
-            this.Name = "frmAccount";
-            this.Text = "Korisnici";
-            this.Load += new System.EventHandler(this.frmAccount_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAccount)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoValidate = AutoValidate.Disable;
+            BackColor = Color.Aqua;
+            ClientSize = new Size(896, 591);
+            Controls.Add(labelError);
+            Controls.Add(txtUsername);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(rbZensko);
+            Controls.Add(rbMale);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(txtLastName);
+            Controls.Add(label4);
+            Controls.Add(btnSave);
+            Controls.Add(btnDelete);
+            Controls.Add(txtName);
+            Controls.Add(label3);
+            Controls.Add(txtId);
+            Controls.Add(ID);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(btnSearch);
+            Controls.Add(txtSearch);
+            Controls.Add(dgvAccount);
+            Margin = new Padding(3, 2, 3, 2);
+            MaximizeBox = false;
+            Name = "frmAccount";
+            Text = "Korisnici";
+            Load += frmAccount_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvAccount).EndInit();
+            ((System.ComponentModel.ISupportInitialize)err).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private TextBox txtPassword;
         private TextBox txtUsername;
         private DateTimePicker dateTimePicker1;
         private RadioButton rbZensko;
         private RadioButton rbMale;
-        private Label label8;
         private Label label7;
         private Label label6;
         private Label label5;
@@ -319,5 +389,13 @@
         private Button btnCreateEmployee;
         private DataGridView dgvAccount;
         private Label labelError;
+        private DataGridViewTextBoxColumn firstName;
+        private DataGridViewTextBoxColumn lastName;
+        private DataGridViewTextBoxColumn username;
+        private DataGridViewTextBoxColumn email;
+        private DataGridViewTextBoxColumn role;
+        private DataGridViewTextBoxColumn gender;
+        private DataGridViewTextBoxColumn birthDate;
+        private ErrorProvider err;
     }
 }

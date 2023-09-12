@@ -8,58 +8,20 @@ namespace eGym.UI.Desktop
     {
         private readonly APIService _service = new APIService("Diet");
         private readonly AccountDTO selectedUser;
-        bool ValidationInput1 = false, ValidationInput2 = false, ValidationInput3 = false;
 
         public frmCreateNewDiet(AccountDTO user)
         {
             selectedUser = user;
             InitializeComponent();
+            this.cmbDay.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cmbMeal.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cmbDay.SelectedIndex != -1)
-                {
-                    cmbDay.BackColor = SystemColors.Window;
-                    cmbDay.ForeColor = SystemColors.WindowText;
-                    ValidationInput1 = false;
-                }
-                else
-                {
-                    cmbDay.BackColor = Color.LightPink;
-                    cmbDay.ForeColor = Color.Red;
-                    ValidationInput1 = true;
-                }
-                if (cmbMeal.SelectedIndex != -1)
-                {
-                    cmbMeal.BackColor = SystemColors.Window;
-                    cmbMeal.ForeColor = SystemColors.WindowText;
-                    ValidationInput2 = false;
-                }
-                else
-                {
-                    cmbMeal.BackColor = Color.LightPink;
-                    cmbMeal.ForeColor = Color.Red;
-                    ValidationInput2 = true;
-                }
-                if (rtxtDescription.Text != "")
-                {
-                    rtxtDescription.BackColor = SystemColors.Window;
-                    rtxtDescription.ForeColor = SystemColors.WindowText;
-                    rtxtDescription.BorderStyle = BorderStyle.FixedSingle;
-                    ValidationInput3 = false;
-                }
-                else
-                {
-                    rtxtDescription.BackColor = Color.LightPink;
-                    rtxtDescription.ForeColor = Color.Red;
-                    rtxtDescription.BorderStyle = BorderStyle.Fixed3D;
-                    ValidationInput3 = true;
-                }
-
-                if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3)
+                if (ValidateChildren())
                 {
                     var request = new CreateDietRequest()
                     {
@@ -73,7 +35,7 @@ namespace eGym.UI.Desktop
                     this.Close();
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }
@@ -82,6 +44,54 @@ namespace eGym.UI.Desktop
         private void frmCreateNewDiet_Load(object sender, EventArgs e)
         {
             txtName.Text = txtName.Text = selectedUser.FirstName + " " + selectedUser.LastName;
+        }
+
+        private void cmbDay_Validating(object sender, CancelEventArgs e)
+        {
+
+            if (string.IsNullOrEmpty(cmbDay.Text))
+            {
+                e.Cancel = true;
+                SetError(cmbDay, "Morate unijeti dan");
+            }
+            else
+            {
+                e.Cancel = false;
+                SetError(cmbDay, "");
+            }
+        }
+
+        private void cmbMeal_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(cmbMeal.Text))
+            {
+                e.Cancel = true;
+                SetError(cmbMeal, "Morate unijeti obrok");
+            }
+            else
+            {
+                e.Cancel = false;
+                SetError(cmbMeal, "");
+            }
+        }
+
+        private void rtxtDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(rtxtDescription.Text))
+            {
+                e.Cancel = true;
+                SetError(rtxtDescription, "Morate unijeti obrok");
+            }
+            else
+            {
+                e.Cancel = false;
+                SetError(rtxtDescription, "");
+            }
+        }
+        private void SetError(Control control, string message)
+        {
+            err.SetError(control, message);
+            control.Focus();
         }
     }
 }

@@ -11,14 +11,22 @@ namespace eGym.UI.Desktop
         public frmDiet()
         {
             InitializeComponent();
+            dgvAccount.AutoGenerateColumns = false;
+            dgvDiet.AutoGenerateColumns = false;
         }
 
         private async void btnSearch_Click(object sender, EventArgs e)
         {
             try
             {
-                dgvAccount.DataSource = await _userService.Get<List<AccountDTO>>(new { text = txtSearch.Text }, "/search");
-                dgvAccount.Columns["AccountId"].Visible = false;
+                if (txtSearch.Text =="")
+                {
+                    dgvAccount.DataSource = await _userService.Get<List<AccountDTO>>(null, "/getAll");
+                }
+                else
+                {
+                    dgvAccount.DataSource = await _userService.Get<List<AccountDTO>>(new { text = txtSearch.Text }, "/search");
+                }
             }
             catch (Exception ex)
             {
@@ -31,7 +39,6 @@ namespace eGym.UI.Desktop
             try
             {
                 dgvAccount.DataSource = await _userService.Get<List<AccountDTO>>(null, "/getAll");
-                dgvAccount.Columns["AccountId"].Visible= false;
             }
             catch (Exception ex)
             {
@@ -42,15 +49,13 @@ namespace eGym.UI.Desktop
         private async void dgvAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
-            selectedUser = dgvAccount.Rows[index].DataBoundItem as AccountDTO;
+            selectedUser = (AccountDTO)dgvAccount.Rows[index].DataBoundItem;
 
             try
             {
                 dgvDiet.DataSource = await _service.Get<List<DietDTO>>(new { userId = selectedUser.AccountId }, "/getByUserId");
-                dgvDiet.Columns["DietId"].Visible = false;
-                dgvDiet.Columns["AccountId"].Visible = false;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 labelError.Text = "Desila se greska";
             }
@@ -58,7 +63,7 @@ namespace eGym.UI.Desktop
 
         private void btnCreateNew_Click(object sender, EventArgs e)
         {
-            if (selectedUser == null) 
+            if (selectedUser == null)
             {
                 labelError.Text = "Morate odabrati korisnika";
                 return;

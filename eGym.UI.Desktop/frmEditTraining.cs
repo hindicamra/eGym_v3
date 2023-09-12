@@ -9,13 +9,13 @@ public partial class frmEditTraining : Form
     private readonly APIService _service = new APIService("Training");
     private readonly TrainingDTO training;
     private readonly string name;
-    bool ValidationInput1 = false, ValidationInput2 = false;
 
     public frmEditTraining(TrainingDTO training, string clientName)
     {
+        InitializeComponent();
         this.training = training;
         name = clientName;
-        InitializeComponent();
+        this.cmbDay.DropDownStyle = ComboBoxStyle.DropDownList;
     }
 
     private void frmEditTraining_Load(object sender, EventArgs e)
@@ -27,37 +27,9 @@ public partial class frmEditTraining : Form
 
     private async void btnSave_Click(object sender, EventArgs e)
     {
-        try
+        if (ValidateChildren())
         {
-            if (cmbDay.SelectedIndex != -1)
-            {
-                cmbDay.BackColor = SystemColors.Window;
-                cmbDay.ForeColor = SystemColors.WindowText;
-                ValidationInput1 = false;
-            }
-            else
-            {
-                cmbDay.BackColor = Color.LightPink;
-                cmbDay.ForeColor = Color.Red;
-                ValidationInput1 = true;
-            }
-
-            if (rtxtDescription.Text != "")
-            {
-                rtxtDescription.BackColor = SystemColors.Window;
-                rtxtDescription.ForeColor = SystemColors.WindowText;
-                rtxtDescription.BorderStyle = BorderStyle.FixedSingle;
-                ValidationInput2 = false;
-            }
-            else
-            {
-                rtxtDescription.BackColor = Color.LightPink;
-                rtxtDescription.ForeColor = Color.Red;
-                rtxtDescription.BorderStyle = BorderStyle.Fixed3D;
-                ValidationInput2 = true;
-            }
-
-            if (!ValidationInput1 && !ValidationInput2)
+            try
             {
                 var request = new UpdateTrainingRequest()
                 {
@@ -67,11 +39,11 @@ public partial class frmEditTraining : Form
 
                 await _service.Put<TrainingDTO>(training.TrainingId, request);
                 labelError.Text = "Uspjesno updatovan";
-            }     
-        }
-        catch (Exception ex)
-        {
-            labelError.Text = "Desila se greska";
+            }
+            catch (Exception ex)
+            {
+                labelError.Text = "Desila se greska";
+            }
         }
     }
 
@@ -90,6 +62,26 @@ public partial class frmEditTraining : Form
         catch (Exception ex)
         {
             labelError.Text = "Desila se greska";
+        }
+    }
+
+    private void SetError(Control control, string message)
+    {
+        err.SetError(control, message);
+        control.Focus();
+    }
+
+    private void rtxtDescription_Validating(object sender, CancelEventArgs e)
+    {
+        if (string.IsNullOrEmpty(rtxtDescription.Text))
+        {
+            e.Cancel = true;
+            SetError(rtxtDescription, "Morate unijeti trening");
+        }
+        else
+        {
+            e.Cancel = false;
+            SetError(rtxtDescription, "");
         }
     }
 }

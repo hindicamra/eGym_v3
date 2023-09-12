@@ -197,7 +197,7 @@ FROM
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Rođendan:</Value>
+                                  <Value>Datum rođenja:</Value>
                                   <Style>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>

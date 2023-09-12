@@ -1,5 +1,6 @@
 ﻿using eGym.BLL.Models;
 using eGym.BLL.Models.Requests;
+using System.ComponentModel;
 
 namespace eGym.UI.Desktop
 {
@@ -11,43 +12,18 @@ namespace eGym.UI.Desktop
 
         public frmCreateNewTraining(AccountDTO user)
         {
-            selectedUser = user;
             InitializeComponent();
+            selectedUser = user;
+            this.cmbDay.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbDay.SelectedIndex = 0;
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
-            if (cmbDay.SelectedIndex != -1)
-            {
-                cmbDay.BackColor = SystemColors.Window;
-                cmbDay.ForeColor = SystemColors.WindowText;
-                ValidationInput1 = false;
-            }
-            else
-            {
-                cmbDay.BackColor = Color.LightPink;
-                cmbDay.ForeColor = Color.Red;
-                ValidationInput1 = true;
-            }
 
-            if (rtxtDescription.Text != "")
+            if (ValidateChildren())
             {
-                rtxtDescription.BackColor = SystemColors.Window;
-                rtxtDescription.ForeColor = SystemColors.WindowText;
-                rtxtDescription.BorderStyle = BorderStyle.FixedSingle;
-                ValidationInput2 = false;
-            }
-            else
-            {
-                rtxtDescription.BackColor = Color.LightPink;
-                rtxtDescription.ForeColor = Color.Red;
-                rtxtDescription.BorderStyle = BorderStyle.Fixed3D;
-                ValidationInput2 = true;
-            }
-
-            try
-            {
-                if (!ValidationInput1 && !ValidationInput2)
+                try
                 {
                     var request = new CreateTrainingRequest()
                     {
@@ -60,17 +36,38 @@ namespace eGym.UI.Desktop
 
                     labelError.Text = "Uspjesno kreiran";
                     this.Close();
+
                 }
-            }
-            catch (Exception ex)
-            {
-                labelError.Text = "Desila se greska";
+                catch (Exception ex)
+                {
+                    labelError.Text = "Desila se greska";
+                }
             }
         }
 
         private void frmCreateNewTraining_Load(object sender, EventArgs e)
         {
             txtName.Text = selectedUser.FirstName + " " + selectedUser.LastName;
+        }
+
+        private void SetError(Control control, string message)
+        {
+            err.SetError(control, message);
+            control.Focus();
+        }
+
+        private void rtxtDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrEmpty(rtxtDescription.Text))
+            {
+                e.Cancel = true;
+                SetError(rtxtDescription, "Morate unijeti trening");
+            }
+            else
+            {
+                e.Cancel = false;
+                SetError(rtxtDescription, "");
+            }
         }
     }
 }

@@ -21,9 +21,9 @@ namespace eGym.UI.Desktop
             try
             {
                 dgvTrainings.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpSearchTime.Value }, "/GetPaidReservation");
-                dgvTrainings.Columns["ReservationId"].Visible= false;
-                dgvTrainings.Columns["AccountId"].Visible= false;
-                dgvTrainings.Columns["EmployeeId"].Visible= false;
+                dgvTrainings.Columns["ReservationId"].Visible = false;
+                dgvTrainings.Columns["AccountId"].Visible = false;
+                dgvTrainings.Columns["EmployeeId"].Visible = false;
             }
             catch (Exception ex)
             {
