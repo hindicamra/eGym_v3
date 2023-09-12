@@ -129,14 +129,51 @@ namespace eGym.UI.Desktop
                         Username = txtUsername.Text,
                     };
 
-                    await _service.Put<AccountDTO>(selectedUser.AccountId, request);
+                        rbMale.BackColor = SystemColors.Window;
+                        rbMale.ForeColor = SystemColors.WindowText;
+                        ValidationInput3 = false;
+                    }
+                    else
+                    {
+                        rbZensko.BackColor = Color.LightPink;
+                        rbZensko.ForeColor = Color.Red;
 
-                    dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
+                        rbMale.BackColor = SystemColors.Window;
+                        rbMale.ForeColor = SystemColors.WindowText;
+                        ValidationInput3 = true;
+                    }
+                    if (txtName.Text != "")
+                    {
+                        txtUsername.BackColor = SystemColors.Window;
+                        txtUsername.ForeColor = SystemColors.WindowText;
+                        txtUsername.BorderStyle = BorderStyle.FixedSingle;
+                        ValidationInput4 = false;
+                    }
+                    else
+                    {
+                        txtUsername.BackColor = Color.LightPink;
+                        txtUsername.ForeColor = Color.Red;
+                        txtUsername.BorderStyle = BorderStyle.Fixed3D;
+                        ValidationInput4 = true;
+                    }
+                    if (!ValidationInput1 && !ValidationInput2 && !ValidationInput3 && !ValidationInput4 && !ValidationInput5 && selectedUser != null)
+                    {
+                        var request = new UpdateAccountRequest()
+                        {
+                            FirstName = txtName.Text,
+                            LastName = txtLastName.Text,
+                            BirthDate = dateTimePicker1.Value,
+                            Username = txtUsername.Text,
+                        };
 
-                    labelError.Text = "Uspjesno updatovan korisnik";
+                        await _service.Put<AccountDTO>(selectedUser.AccountId, request);
 
-                    btnSave.Enabled = btnDelete.Enabled = false;
+                        dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
 
+                        labelError.Text = "Uspjesno updatovan korisnik";
+
+                        btnSave.Enabled = btnDelete.Enabled = false;
+                    }
                 }
                 catch (Exception ex)
                 {
