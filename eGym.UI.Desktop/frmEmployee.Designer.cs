@@ -285,7 +285,6 @@
             // rbMale
             // 
             rbMale.AutoSize = true;
-            rbMale.Enabled = false;
             rbMale.Location = new Point(232, 446);
             rbMale.Margin = new Padding(3, 2, 3, 2);
             rbMale.Name = "rbMale";
@@ -298,7 +297,6 @@
             // rbZensko
             // 
             rbZensko.AutoSize = true;
-            rbZensko.Enabled = false;
             rbZensko.Location = new Point(388, 446);
             rbZensko.Margin = new Padding(3, 2, 3, 2);
             rbZensko.Name = "rbZensko";

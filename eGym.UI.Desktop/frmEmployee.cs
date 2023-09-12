@@ -115,6 +115,15 @@ namespace eGym.UI.Desktop
                         Role = role
                     };
 
+                    if (rbZensko.Checked)
+                    {
+                        request.Gender = BLL.Models.Enums.Gender.Female;
+                    }
+                    else
+                    {
+                        request.Gender = BLL.Models.Enums.Gender.Male;
+                    }
+
                     await _service.Put<EmployeeDTO>(selectedEmployee.EmployeeId, request);
 
                     dgvEmployee.DataSource = await _service.Get<List<EmployeeDTO>>(null, "/getAll");

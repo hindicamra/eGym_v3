@@ -47,7 +47,7 @@ namespace eGym.UI.Desktop
                 if (ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
-                    throw ex;
+                    return default(T);
                 }
 
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
@@ -75,7 +75,7 @@ namespace eGym.UI.Desktop
                 if(ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
-                    throw ex;
+                    return default(T);
                 }
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
@@ -100,7 +100,13 @@ namespace eGym.UI.Desktop
                     query = await search.ToQueryString();
                 }
 
-                var list = await $"{_endpoint}{_resource}{path}?{query}".WithBasicAuth(Username, Password).GetJsonAsync<T>();
+                string url = $"{_endpoint}{_resource}{path}";
+                if (search != null)
+                {
+                    url += $"?{query}";
+                }
+
+                var list = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
                 return list;
             }
@@ -109,7 +115,7 @@ namespace eGym.UI.Desktop
                 if (ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
-                    throw ex;
+                    return default(T);
                 }
 
                 return default;
@@ -118,23 +124,62 @@ namespace eGym.UI.Desktop
 
         public async Task<T> GetById<T>(int id)
         {
-            var result = await $"{_endpoint}{_resource}?id={id}".WithBasicAuth(Username, Password).GetJsonAsync<T>();
+            try
+            {
+                var result = await $"{_endpoint}{_resource}?id={id}".WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
-            return result;
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                if (ex.StatusCode == 403)
+                {
+                    MessageBox.Show("Nemate pravo pristupa");
+                    return default(T);
+                }
+
+                return default;
+            }
         }
 
         public async Task<T> Put<T>(object id, object request)
         {
-            var result = await $"{_endpoint}{_resource}?id={id}".WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+            try
+            {
+                var result = await $"{_endpoint}{_resource}?id={id}".WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
 
-            return result;
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                if (ex.StatusCode == 403)
+                {
+                    MessageBox.Show("Nemate pravo pristupa");
+                    return default(T);
+                }
+
+                return default;
+            }
         }
 
         public async Task<T> Put<T>(object id, string path = "")
         {
-            var result = await $"{_endpoint}{_resource}{path}?reservationId={id}".WithBasicAuth(Username, Password).PutAsync().ReceiveJson<T>();
+            try
+            {
+                var result = await $"{_endpoint}{_resource}{path}?reservationId={id}".WithBasicAuth(Username, Password).PutAsync().ReceiveJson<T>();
 
-            return result;
+                return result;
+            }
+            catch (FlurlHttpException ex)
+            {
+                if (ex.StatusCode == 403)
+                {
+                    MessageBox.Show("Nemate pravo pristupa");
+                    return default(T);
+                }
+
+                return default;
+            }
         }
 
         public async Task Delete(object id)
@@ -150,7 +195,7 @@ namespace eGym.UI.Desktop
                 if (ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
-                    throw ex;
+                    //return default;
                 }
             }
         }

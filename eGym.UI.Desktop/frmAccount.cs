@@ -120,14 +120,8 @@ namespace eGym.UI.Desktop
             {
                 try
                 {
-
-                    var request = new UpdateAccountRequest()
+                    if ((rbZensko.Checked && !rbMale.Checked) || (!rbZensko.Checked && rbMale.Checked))
                     {
-                        FirstName = txtName.Text,
-                        LastName = txtLastName.Text,
-                        BirthDate = dateTimePicker1.Value,
-                        Username = txtUsername.Text,
-                    };
 
                         rbMale.BackColor = SystemColors.Window;
                         rbMale.ForeColor = SystemColors.WindowText;
@@ -163,8 +157,17 @@ namespace eGym.UI.Desktop
                             FirstName = txtName.Text,
                             LastName = txtLastName.Text,
                             BirthDate = dateTimePicker1.Value,
-                            Username = txtUsername.Text,
+                            Username = txtUsername.Text
                         };
+
+                        if (rbZensko.Checked)
+                        {
+                            request.Gender = BLL.Models.Enums.Gender.Female;
+                        }
+                        else
+                        {
+                            request.Gender = BLL.Models.Enums.Gender.Male;
+                        }
 
                         await _service.Put<AccountDTO>(selectedUser.AccountId, request);
 

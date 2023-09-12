@@ -258,10 +258,15 @@ namespace eGym.UI.Desktop
                 e.Cancel = true;
                 SetError(txtPassword, "Morate unijeti šifru.");
             }
-            else if (txtPassword.Text.Length < 2)
+            else if (txtPassword.Text.Length < 3)
             {
                 e.Cancel = true;
-                SetError(txtPassword, "Šifra ne smije biti kraće od 2 karaktera.");
+                SetError(txtPassword, "Šifra ne smije biti kraća od 3 karaktera.");
+            }
+            else if (txtPassword.Text.Length > 20)
+            {
+                e.Cancel = true;
+                SetError(txtPassword, "Šifra ne smije biti duza od 20 karaktera.");
             }
             else
             {
