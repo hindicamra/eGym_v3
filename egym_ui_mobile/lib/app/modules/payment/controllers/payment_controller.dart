@@ -66,6 +66,7 @@ class PaymentController extends GetxController {
 
     if (!_isExpirationDateValid(expirationMonth, expirationYear)) {
       Get.snackbar('Greška', 'Izgleda da datum isteka nije validan');
+      registrationLoading.value = false;
       return;
     }
 
