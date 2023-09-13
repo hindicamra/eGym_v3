@@ -1,11 +1,10 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace eGym.Domain;
+﻿namespace eGym.Domain;
 
 public class Payment
 {
     public int PaymentId { get; set; }
+
+    public string StripePaymentId { get; set; }
 
     public string Description { get; set; }
 

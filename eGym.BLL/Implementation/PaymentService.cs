@@ -110,7 +110,8 @@ public class PaymentService : IPaymentService
             Currency = payment.Currency,
             Amount = payment.Amount,
             CustomerId = customer.FirstOrDefault().CustomerId,
-            ReservationId = payment.ReservationId
+            ReservationId = payment.ReservationId,
+            StripePaymentId = response.Id
         };
 
         await _unitOfWork.Payments.Insert(internalPayment);

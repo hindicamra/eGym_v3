@@ -121,7 +121,7 @@ class CreateTrainingView extends GetView<CreateTrainingController> {
                   children: [
                     const Expanded(
                       flex: 2,
-                      child: Text('Od datuma'),
+                      child: Text('Do datuma'),
                     ),
                     Expanded(
                       flex: 3,
