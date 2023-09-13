@@ -54,11 +54,15 @@ namespace eGym.UI.Desktop
 
         private async void buttonDelete_Click(object sender, EventArgs e)
         {
-            await _service.Delete(new { id = serviceDTO.ServiceId });
-            richTextBox1.Text = textBox1.Text = textBox2.Text = "";
-            serviceDTO=new ServiceDTO();
-            buttonDelete.Visible = false;
-            Reload();
+            var response = await _service.Delete(new { id = serviceDTO.ServiceId });
+
+            if (response != null && response.StatusCode == 204)
+            {
+                richTextBox1.Text = textBox1.Text = textBox2.Text = "";
+                serviceDTO = new ServiceDTO();
+                buttonDelete.Visible = false;
+                Reload();
+            }
         }
 
         private async void buttonSave_Click(object sender, EventArgs e)
@@ -121,11 +125,11 @@ namespace eGym.UI.Desktop
 
                 if (serviceDTO.ServiceId == 0)
                 {
-                    await _service.Post<ServiceDTO>(request);
+                    await _service.Post(request);
                 }
                 else
                 {
-                    await _service.Put<ServiceDTO>(serviceDTO.ServiceId, request);
+                    await _service.Put(serviceDTO.ServiceId, request);
                 }
 
                 Cancel();

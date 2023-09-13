@@ -30,9 +30,17 @@ namespace eGym.UI.Desktop
                         Meal = (BLL.Models.Enums.Meal)cmbMeal.SelectedIndex,
                         Description = rtxtDescription.Text
                     };
-                    await _service.Post<DietDTO>(request);
-                    labelError.Text = "Uspjesno kreiran";
-                    this.Close();
+                    var response = await _service.Post(request);
+
+                    if (response != null && response.StatusCode == 202)
+                    {
+                        MessageBox.Show("Uspjesno kreiran");
+                        this.Close();
+                    }
+                    else
+                    {
+                        labelError.Text = "Desila se greska, prilikom kreiranja ishrane";
+                    }
                 }
             }
             catch (Exception ex)

@@ -92,20 +92,27 @@ namespace eGym.UI.Desktop
                     MessageBox.Show("Morate odabrati korisnika");
                     return;
                 }
-                await _service.Delete(new { id = selectedUser.AccountId });
+                var response = await _service.Delete(new { id = selectedUser.AccountId });
 
-                dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
+                if (response != null && response.StatusCode == 204)
+                {
+                    dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
 
-                txtId.Text = string.Empty;
-                txtName.Text = string.Empty;
-                txtLastName.Text = string.Empty;
-                txtUsername.Text = string.Empty;
-                dateTimePicker1.Value = DateTime.Now;
+                    txtId.Text = string.Empty;
+                    txtName.Text = string.Empty;
+                    txtLastName.Text = string.Empty;
+                    txtUsername.Text = string.Empty;
+                    dateTimePicker1.Value = DateTime.Now;
 
-                selectedUser = null;
+                    selectedUser = null;
 
-                labelError.Text = "Uspjesno obrisan korisnik";
-                btnSave.Enabled = btnDelete.Enabled = false;
+                    MessageBox.Show("Uspjesno obrisan korisnik");
+                    btnSave.Enabled = btnDelete.Enabled = false;
+                }
+                else
+                {
+                    labelError.Text = "Desila se greska prilikom brisanja";
+                }
             }
             catch (Exception ex)
             {
@@ -169,13 +176,20 @@ namespace eGym.UI.Desktop
                             request.Gender = BLL.Models.Enums.Gender.Male;
                         }
 
-                        await _service.Put<AccountDTO>(selectedUser.AccountId, request);
+                        var response = await _service.Put(selectedUser.AccountId, request);
 
-                        dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
+                        if (response != null && response.StatusCode == 202)
+                        {
+                            dgvAccount.DataSource = await _service.Get<List<AccountDTO>>(null, "/getAll");
 
-                        labelError.Text = "Uspjesno updatovan korisnik";
+                            MessageBox.Show("Uspjesno updatovan korisnik");
 
-                        btnSave.Enabled = btnDelete.Enabled = false;
+                            btnSave.Enabled = btnDelete.Enabled = false;
+                        }
+                        else
+                        {
+                            labelError.Text = "Desila se greska prilikom updatetovanja";
+                        }
                     }
                 }
                 catch (Exception ex)

@@ -48,32 +48,6 @@ public class PaymentController : ControllerBase
         }
     }
 
-    [HttpDelete]
-    public async Task<IActionResult> Delete(int id)
-    {
-        try
-        {
-            return NoContent();
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-    }
-
-    [HttpPut]
-    public async Task<IActionResult> Update()
-    {
-        try
-        {
-            return Accepted();
-        }
-        catch (Exception ex)
-        {
-            throw ex;
-        }
-    }
-
     [HttpPost]
     [Route("addCustomer")]
     public async Task<IActionResult> CreateCustomer([FromBody] CustomerRequest request, CancellationToken ct)

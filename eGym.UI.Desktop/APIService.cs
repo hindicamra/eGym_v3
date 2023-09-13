@@ -63,11 +63,11 @@ namespace eGym.UI.Desktop
             }
         }
 
-        public async Task<T> Post<T>(object request)
+        public async Task<IFlurlResponse> Post(object request)
         {
             try
             {
-                var result = await $"{_endpoint}{_resource}".WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+                var result = await $"{_endpoint}{_resource}".WithBasicAuth(Username, Password).PostJsonAsync(request);
                 return result;
             }
             catch (FlurlHttpException ex)
@@ -75,7 +75,7 @@ namespace eGym.UI.Desktop
                 if(ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
-                    return default(T);
+                    return default;
                 }
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
@@ -86,7 +86,7 @@ namespace eGym.UI.Desktop
                 }
 
                 MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return default(T);
+                return default;
             }
         }
 
@@ -142,11 +142,11 @@ namespace eGym.UI.Desktop
             }
         }
 
-        public async Task<T> Put<T>(object id, object request)
+        public async Task<IFlurlResponse> Put(object id, object request)
         {
             try
             {
-                var result = await $"{_endpoint}{_resource}?id={id}".WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+                var result = await $"{_endpoint}{_resource}?id={id}".WithBasicAuth(Username, Password).PutJsonAsync(request);
 
                 return result;
             }
@@ -155,18 +155,18 @@ namespace eGym.UI.Desktop
                 if (ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
-                    return default(T);
+                    return default;
                 }
 
                 return default;
             }
         }
 
-        public async Task<T> Put<T>(object id, string path = "")
+        public async Task<IFlurlResponse> Put(object id, string path = "")
         {
             try
             {
-                var result = await $"{_endpoint}{_resource}{path}?reservationId={id}".WithBasicAuth(Username, Password).PutAsync().ReceiveJson<T>();
+                var result = await $"{_endpoint}{_resource}{path}?reservationId={id}".WithBasicAuth(Username, Password).PutAsync();
 
                 return result;
             }
@@ -175,28 +175,32 @@ namespace eGym.UI.Desktop
                 if (ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
-                    return default(T);
+                    return default;
                 }
 
                 return default;
             }
         }
 
-        public async Task Delete(object id)
+        public async Task<IFlurlResponse> Delete(object id)
         {
             try
             {
                 var query = await id.ToQueryString();
 
                 var result = await $"{_endpoint}{_resource}?{query}".WithBasicAuth(Username, Password).DeleteAsync();
+
+                return result;
             }
             catch (FlurlHttpException ex)
             {
                 if (ex.StatusCode == 403)
                 {
                     MessageBox.Show("Nemate pravo pristupa");
-                    //return default;
+                    return default;
                 }
+
+                return default;
             }
         }
     }

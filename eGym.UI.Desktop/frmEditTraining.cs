@@ -37,8 +37,16 @@ public partial class frmEditTraining : Form
                     Description = rtxtDescription.Text
                 };
 
-                await _service.Put<TrainingDTO>(training.TrainingId, request);
-                labelError.Text = "Uspjesno updatovan";
+                var response = await _service.Put(training.TrainingId, request);
+
+                if (response != null && response.StatusCode == 202)
+                {
+                    MessageBox.Show("Uspjesno updatovan");
+                }
+                else
+                {
+                    labelError.Text = "Desila se greska prilikom updatetovanja";
+                }
             }
             catch (Exception ex)
             {
@@ -51,13 +59,21 @@ public partial class frmEditTraining : Form
     {
         try
         {
-            await _service.Delete(training.TrainingId);
+            var response = await _service.Delete(training.TrainingId);
 
-            cmbDay.SelectedIndex = 0;
-            cmbDay.SelectedIndex = 0;
-            rtxtDescription.Text = "";
+            if (response != null && response.StatusCode == 204)
+            {
+                cmbDay.SelectedIndex = 0;
+                cmbDay.SelectedIndex = 0;
+                rtxtDescription.Text = "";
 
-            labelError.Text = "Uspjesno obrisan unos";
+                MessageBox.Show("Uspjesno obrisan unos");
+                this.Close();
+            }
+            else
+            {
+                labelError.Text = "Desila se greska prilikom brisanja";
+            }
         }
         catch (Exception ex)
         {

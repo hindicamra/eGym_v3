@@ -116,7 +116,7 @@ public class AccountController : ControllerBase
 
             await _accountService.Update(request, account);
 
-            return Ok();
+            return Accepted();
         }
         catch(Exception ex)
         {

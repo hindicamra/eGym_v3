@@ -134,7 +134,7 @@ public class EmployeeController : ControllerBase
 
             await _employeeService.Update(request, employee);
 
-            return Ok();
+            return Accepted();
         }
         catch (Exception ex)
         {

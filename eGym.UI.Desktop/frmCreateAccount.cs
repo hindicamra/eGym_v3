@@ -36,9 +36,17 @@ namespace eGym.UI.Desktop
                         Gender = rbFemale.Checked ? BLL.Models.Enums.Gender.Female : BLL.Models.Enums.Gender.Male
                     };
 
-                    await _service.Post<AccountDTO>(request);
-                    labelError.Text = "Uspješno kreiran korisnik";
-                    this.Close();
+                    var response = await _service.Post(request);
+
+                    if (response != null && response.StatusCode == 202)
+                    {
+                        MessageBox.Show("Uspješno kreiran korisnik");
+                        this.Close();
+                    }
+                    else
+                    {
+                        labelError.Text = "Desila se greška prilikom kreiranja korisnika";
+                    }
                 }
             }
             catch (Exception ex)

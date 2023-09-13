@@ -59,20 +59,27 @@ namespace eGym.UI.Desktop
                     labelError.Text = "Morate odabrati korisnika";
                     return;
                 }
-                await _service.Delete(new { id = selectedEmployee.EmployeeId });
+                var response = await _service.Delete(new { id = selectedEmployee.EmployeeId });
 
-                dgvEmployee.DataSource = await _service.Get<List<EmployeeDTO>>(null, "/getAll");
+                if (response != null && response.StatusCode == 204)
+                {
+                    dgvEmployee.DataSource = await _service.Get<List<EmployeeDTO>>(null, "/getAll");
 
-                txtId.Text = string.Empty;
-                txtName.Text = string.Empty;
-                txtLastName.Text = string.Empty;
-                txtUsername.Text = string.Empty;
-                dateTimePicker1.Value = DateTime.Now;
-                comboBox1.SelectedIndex = -1;
+                    txtId.Text = string.Empty;
+                    txtName.Text = string.Empty;
+                    txtLastName.Text = string.Empty;
+                    txtUsername.Text = string.Empty;
+                    dateTimePicker1.Value = DateTime.Now;
+                    comboBox1.SelectedIndex = -1;
 
-                selectedEmployee = null;
+                    selectedEmployee = null;
 
-                labelError.Text = "Uspjesno obirsan uposlenik";
+                    MessageBox.Show("Uspjesno obirsan uposlenik");
+                }
+                else
+                {
+                    labelError.Text = "Desila se greska prilikom brisanja";
+                }
             }
             catch (Exception ex)
             {
@@ -124,12 +131,19 @@ namespace eGym.UI.Desktop
                         request.Gender = BLL.Models.Enums.Gender.Male;
                     }
 
-                    await _service.Put<EmployeeDTO>(selectedEmployee.EmployeeId, request);
+                    var response = await _service.Put(selectedEmployee.EmployeeId, request);
 
-                    dgvEmployee.DataSource = await _service.Get<List<EmployeeDTO>>(null, "/getAll");
+                    if (response != null && response.StatusCode == 202)
+                    {
+                        dgvEmployee.DataSource = await _service.Get<List<EmployeeDTO>>(null, "/getAll");
 
-                    labelError.Text = "Uspjesno updatovan uposlenik";
-                    btnDelete.Enabled = btnSave.Enabled = false;
+                        MessageBox.Show("Uspjesno updatovan uposlenik");
+                        btnDelete.Enabled = btnSave.Enabled = false;
+                    }
+                    else
+                    {
+                        labelError.Text = "Desila se greska, prilikom updatetovanja";
+                    }
                 }
                 catch (Exception ex)
                 {

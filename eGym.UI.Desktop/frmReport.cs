@@ -46,6 +46,11 @@ namespace eGym.UI.Desktop
                 {
                     var response = await _service.Get<List<Payment>>(null, $"/finance?token={token.Key}");
 
+                    if (response == null)
+                    {
+                        response = new List<Payment>();
+                    }
+
                     FormReportPaymentssGetAll frm = new FormReportPaymentssGetAll(response);
                     frm.Show();
                 }

@@ -28,9 +28,17 @@ namespace eGym.UI.Desktop
                     return;
                 }
 
-                await _service.Put<ReservationDTO>(selectedReservation.ReservationId, "/confirm");
-                dgvReservations.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpDate.Value }, "/GetPendingReservation");
-                labelError.Text = "Reservacija potvrdjena";
+                var response = await _service.Put(selectedReservation.ReservationId, "/confirm");
+
+                if (response != null && response.StatusCode == 202)
+                {
+                    dgvReservations.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpDate.Value }, "/GetPendingReservation");
+                    MessageBox.Show("Rezervacija potvrdjena");
+                }
+                else
+                {
+                    labelError.Text = "Desila se greska prilikom potvrdjivanja";
+                }
             }
             catch (Exception ex)
             {
@@ -70,10 +78,17 @@ namespace eGym.UI.Desktop
                     return;
                 }
 
-                await _service.Put<ReservationDTO>(selectedReservation.ReservationId, "/decline");
-                dgvReservations.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpDate.Value }, "/GetPendingReservation");
-                labelError.Text = "Reservacija odbijena";
+                var response = await _service.Put(selectedReservation.ReservationId, "/decline");
 
+                if (response != null && response.StatusCode == 202)
+                {
+                    dgvReservations.DataSource = await _service.Get<List<ReservationDTO>>(new { employeeId = logedEmployee.EmployeeId, date = dtpDate.Value }, "/GetPendingReservation");
+                    MessageBox.Show("Rezervacija odbijena");
+                }
+                else
+                {
+                    labelError.Text = "Desila se greska prilikom odbijanja";
+                }
             }
             catch (Exception)
             {

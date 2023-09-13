@@ -55,8 +55,16 @@ public partial class frmEditDiet : Form
                 Description = rtxtDescription.Text
             };
 
-            await _service.Put<DietDTO>(diet.DietId, request);
-            labelError.Text = "Uspjesno updatovan";
+            var response = await _service.Put(diet.DietId, request);
+
+            if (response != null && response.StatusCode == 202)
+            {
+                MessageBox.Show("Uspjesno updatovan");
+            }
+            else
+            {
+                labelError.Text = "Desila se greska prilikom updatetovanja";
+            }
         }
         catch (Exception ex)
         {
@@ -68,13 +76,21 @@ public partial class frmEditDiet : Form
     {
         try
         {
-            await _service.Delete(diet.DietId);
+            var response = await _service.Delete(diet.DietId);
 
-            cmbDay.SelectedIndex = 0;
-            cmbDay.SelectedIndex = 0;
-            rtxtDescription.Text = "";
+            if (response != null && response.StatusCode == 204)
+            {
+                cmbDay.SelectedIndex = 0;
+                cmbDay.SelectedIndex = 0;
+                rtxtDescription.Text = "";
 
-            labelError.Text = "Uspjesno obrisan unos";
+               MessageBox.Show("Uspjesno obrisan unos");
+               this.Close();   
+            }
+            else
+            {
+                labelError.Text = $"Desila se greska prilikom brisanja";
+            }
         }
         catch (Exception ex)
         {

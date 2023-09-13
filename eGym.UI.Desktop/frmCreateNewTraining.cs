@@ -32,11 +32,17 @@ namespace eGym.UI.Desktop
                         Description = rtxtDescription.Text
                     };
 
-                    await _service.Post<TrainingDTO>(request);
+                    var response = await _service.Post(request);
 
-                    labelError.Text = "Uspjesno kreiran";
-                    this.Close();
-
+                    if (response != null && response.StatusCode == 202) 
+                    {
+                        labelError.Text = "Uspjesno kreiran";
+                        this.Close();
+                    }
+                    else
+                    {
+                        labelError.Text = "Desila se greska prilikom kreiranja treninga";
+                    }
                 }
                 catch (Exception ex)
                 {

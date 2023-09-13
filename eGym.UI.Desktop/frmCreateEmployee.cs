@@ -138,16 +138,24 @@ namespace eGym.UI.Desktop
 
                         if (rbFemale.Checked)
                         {
-                            request.Gender = (BLL.Models.Enums.Gender)1;
+                            request.Gender = BLL.Models.Enums.Gender.Female;
                         }
                         else
                         {
-                            request.Gender = (BLL.Models.Enums.Gender)0;
+                            request.Gender = BLL.Models.Enums.Gender.Male;
                         }
 
-                        await _service.Post<EmployeeDTO>(request);
-                        labelError.Text = "Uspjesno kreiran uposlenik";
-                        this.Close();
+                        var response = await _service.Post(request);
+
+                        if (response != null && response.StatusCode == 202)
+                        {
+                            MessageBox.Show("Uspjesno kreiran uposlenik");
+                            this.Close();
+                        }
+                        else
+                        {
+                            labelError.Text = "Desila se greska prilikom kreiranja uposlenika";
+                        }
                     }
                 }
                 catch (Exception ex)
