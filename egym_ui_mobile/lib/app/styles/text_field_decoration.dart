@@ -8,6 +8,7 @@ InputDecoration appTextFieldDecoration({
   bool enableBorder = true,
   Color? borderColor,
   bool fillColor = true,
+  Widget? sufixIcon,
 }) {
   return InputDecoration(
     fillColor: AppColors.fieldColor,
@@ -16,6 +17,7 @@ InputDecoration appTextFieldDecoration({
     hintStyle: const TextStyle(
       color: AppColors.hintText,
     ),
+    suffixIcon: sufixIcon,
     isDense: true,
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(borderRadius),

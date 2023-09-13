@@ -12,6 +12,7 @@ class LoginController extends GetxController {
   final loginFormKey = GlobalKey<FormState>();
   String username = '';
   String password = '';
+  final RxBool hidePassword = true.obs;
 
   void onPressLogin() async {
     final isValid = loginFormKey.currentState!.validate();

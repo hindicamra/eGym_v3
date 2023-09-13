@@ -73,19 +73,28 @@ class LoginView extends GetView<LoginController> {
                       ),
                     ),
                   ),
-                  TextFormField(
-                    decoration: appTextFieldDecoration(
-                      hintText: 'Pass123',
+                  Obx(
+                    () => TextFormField(
+                      obscureText: controller.hidePassword.value,
+                      decoration: appTextFieldDecoration(
+                        hintText: 'Pass123',
+                        sufixIcon: IconButton(
+                          onPressed: () => controller.hidePassword.toggle(),
+                          icon: controller.hidePassword.value
+                              ? const Icon(Icons.remove_red_eye)
+                              : const Icon(Icons.remove_red_eye_outlined),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Polje je obavezno';
+                        }
+                        return null;
+                      },
+                      onSaved: (value) {
+                        controller.password = value!;
+                      },
                     ),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Polje je obavezno';
-                      }
-                      return null;
-                    },
-                    onSaved: (value) {
-                      controller.password = value!;
-                    },
                   ),
                   const Spacer(),
                   SizedBox(
