@@ -1,52 +1,93 @@
 ﻿using eGym.BLL.Models;
 using eGym.BLL.Models.Enums;
 using eGym.DAL;
-
+using eGym.Domain;
+using Microsoft.ML;
+using Microsoft.ML.Data;
+using Microsoft.ML.Trainers;
 namespace eGym.BLL.Implementation;
 
 public class RecommendationService : IRecommendationService
 {
     private readonly IUnitOfWork _unitOfWork;
 
-	public RecommendationService(IUnitOfWork unitOfWork)
-	{
+    public RecommendationService(IUnitOfWork unitOfWork)
+    {
         _unitOfWork = unitOfWork;
-	}
+    }
+
+    private const double V = 0.00001;
+    static object isLocked = new object();
+    static MLContext mlContext = null;
+    static ITransformer model = null;
 
     public async Task<List<Recommendation>> Get(int accountId)
     {
-        var accountReservations = await _unitOfWork.Reservations.GetWhere(x => x.AccountId.Equals(accountId));
+        List<Reservation> allReservations;
 
-        var recommendations = new List<Recommendation>();
-
-        if (accountReservations.Any())
+        allReservations = (await _unitOfWork.Reservations.GetAll()).ToList();
+        lock (isLocked)
         {
-
-            //Add recommendations for most reserved reservation type and most reserved employee
-            var reservationType = accountReservations.GroupBy(x => x.ReservationType).OrderByDescending(t => t.Count()).FirstOrDefault().Key;
-            var employeeId = accountReservations.GroupBy(x => x.EmployeeId).OrderByDescending(t => t.Count()).FirstOrDefault().Key;
-
-            recommendations.Add(new Recommendation()
+            if (mlContext == null)
             {
-                EmployeeId = employeeId,
-                ReservationType = (ReservationType)reservationType
-            });
-        }
-        else
-        {
-            var reservations = await _unitOfWork.Reservations.GetAll();
-
-            for (int i = 0; i < 4; i++)
-            {
-                recommendations.Add(new Recommendation()
+                mlContext = new MLContext();
+                var data = new List<RecommendationEntry>();
+                var traindata = mlContext.Data.LoadFromEnumerable(data);
+                var options = new MatrixFactorizationTrainer.Options()
                 {
-                    EmployeeId = reservations.Where(x => x.ReservationType == i).GroupBy(x => x.EmployeeId).OrderByDescending(g => g.Count()).FirstOrDefault().Key,
-                    ReservationType = (ReservationType)i
-                });
+                    MatrixColumnIndexColumnName = nameof(RecommendationEntry.RecommendationID),
+                    MatrixRowIndexColumnName = nameof(RecommendationEntry.CoPurchaseRecommendationID),
+                    LabelColumnName = "Label",
+                    LossFunction = MatrixFactorizationTrainer.LossFunctionType.SquareLossOneClass,
+                    Alpha = 0.01,
+                    Lambda = 0.025,
+                    NumberOfIterations = 100,
+                    C = V
+                };
+
+                var trainer = mlContext.Recommendation().Trainers.MatrixFactorization(options);
+                model = trainer.Fit(traindata);
             }
         }
 
+        var predictionResult = new List<Tuple<Reservation, float>>();
+
+        foreach (var reservation in allReservations)
+        {
+            var predictionEngine = mlContext.Model.CreatePredictionEngine<RecommendationEntry, CoPurchase_prediction>(model);
+            var prediction = predictionEngine.Predict(new RecommendationEntry()
+            {
+                RecommendationID = (uint)accountId,
+                CoPurchaseRecommendationID = (uint)reservation.ReservationId
+            });
+
+            predictionResult.Add(new Tuple<Reservation, float>(reservation, prediction.Score));
+        }
+
+        var finalResult = predictionResult.OrderByDescending(x => x.Item2).Select(x => x.Item1).Take(3).ToList();
+
+        var recommendations = finalResult.Select(reservation => new Recommendation
+        {
+            EmployeeId = reservation.EmployeeId, 
+            ReservationType = (ReservationType)reservation.ReservationType 
+        }).ToList();
+
         return recommendations;
+    }
+
+    public class RecommendationEntry
+    {
+        [KeyType(count: 5000)]
+        public uint RecommendationID { get; set; }
+
+        [KeyType(count: 5000)]
+        public uint CoPurchaseRecommendationID { get; set; }
+        public float Label { get; set; }
+    }
+
+    public class CoPurchase_prediction
+    {
+        public float Score { get; set; }
     }
 }
 
