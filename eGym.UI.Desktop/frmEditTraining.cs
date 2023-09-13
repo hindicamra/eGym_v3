@@ -25,6 +25,13 @@ public partial class frmEditTraining : Form
         rtxtDescription.Text = training.Description;
     }
 
+    protected override void OnFormClosing(FormClosingEventArgs e)
+    {
+        base.OnFormClosing(e);
+        e.Cancel = false;
+        err.SetError(rtxtDescription, "");
+    }
+
     private async void btnSave_Click(object sender, EventArgs e)
     {
         if (ValidateChildren())

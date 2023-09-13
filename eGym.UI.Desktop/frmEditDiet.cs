@@ -26,6 +26,13 @@ public partial class frmEditDiet : Form
         rtxtDescription.Text = diet.Description;
     }
 
+    protected override void OnFormClosing(FormClosingEventArgs e)
+    {
+        base.OnFormClosing(e);
+        e.Cancel = false;
+        errorProviderApp.SetError(rtxtDescription, "");
+    }
+
     private async void btnSave_Click(object sender, EventArgs e)
     {
         try
@@ -84,8 +91,8 @@ public partial class frmEditDiet : Form
                 cmbDay.SelectedIndex = 0;
                 rtxtDescription.Text = "";
 
-               MessageBox.Show("Uspjesno obrisan unos");
-               this.Close();   
+                MessageBox.Show("Uspjesno obrisan unos");
+                this.Close();
             }
             else
             {
